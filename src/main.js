@@ -16,9 +16,9 @@ const productsElement = document.querySelector(".products");
 const activesElement = document.querySelector(".actives");
 
 const productHtml = products.map(
-  (product) => `<div class="border border-[#ccc] p-8">
+  (product) => `<div class="border border-[#ccc] p-6">
     <img class="w-full" src="${product.image}" alt="">
-    <div class="text-[#ca7703] text-[18px] my-2">${product.title}</div>
+    <div class="text-[#ca7703] text-[18px] font-bold my-2 hover:text-orange-500">${product.title}</div>
     <div>${product.content}</div>
   </div>`,
 ).join("");
