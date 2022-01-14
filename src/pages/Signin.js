@@ -5,8 +5,8 @@ import Input from "../components/Input";
 const Signin = {
   print() {
     return /* html */`
-      <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
+      <div class="min-h-full bg-[url('https://random.imagecdn.app/1300/657')] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="p-10 rounded bg-[#fff] shadow max-w-[540px] w-full space-y-8">
           <div>
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign in to your account

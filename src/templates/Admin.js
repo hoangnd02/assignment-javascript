@@ -8,7 +8,7 @@ const AdminTemplate = {
         ${MenuList.print()}
         <div class="flex flex-col flex-1 w-full">
           ${NavbarTop.print()}
-          <main class="h-full overflow-y-auto">
+          <main class="h-full py-6 overflow-y-auto">
             <div id="page"></div>
           </main>
         </div>
