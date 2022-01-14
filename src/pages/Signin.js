@@ -5,7 +5,7 @@ import Input from "../components/Input";
 const Signin = {
   print() {
     return /* html */`
-      <div class="min-h-full bg-[url('https://random.imagecdn.app/1300/657')] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+      <div class="min-h-full bg-[url('https://random.imagecdn.app/1400/800')] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
         <div class="p-10 rounded bg-[#fff] shadow max-w-[540px] w-full space-y-8">
           <div>
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -38,6 +38,11 @@ const Signin = {
             </div>
             <div class="py-3 text-right">
               ${Button.print("Sign in")}
+            </div>
+            <div class="text-sm text-center">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                Back
+              </a>
             </div>
           `)}
         </div>

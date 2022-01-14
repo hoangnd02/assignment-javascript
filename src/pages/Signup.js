@@ -23,16 +23,13 @@ const Signup = {
             ${Input.print("text", "Last name", "Last name")}
             ${Input.print("text", "Email", "Email")}
             ${Input.print("text", "Password", "Password")}
-            <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                <label for="remember-me" class="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div>
-            </div>
             <div class="py-3 text-right">
               ${Button.print("Sign up")}
+            </div>
+            <div class="text-sm text-center">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                Back
+              </a>
             </div>
           `)}
         </div>
