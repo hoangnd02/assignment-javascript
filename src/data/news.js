@@ -25,37 +25,37 @@ const newsData = [
   {
     id: "1",
     title: "Annie Stroman",
-    img: "http://placeimg.com/640/480/fashion",
+    img: "https://picsum.photos/640/480?random=1",
     desc: "Andy shoes are designed to keeping in mind durability Andy shoes are designed to keeping in mind durabilityAndy shoes are designed to keeping in mind durabilityAndy shoes are designed to keeping in mind durability",
   },
   {
     id: "2",
     title: "Yolanda Roob",
-    img: "http://placeimg.com/640/480/sports",
+    img: "https://picsum.photos/640/480?random=2",
     desc: "Andy shoes are designed to keeping in mind durability",
   },
   {
     id: "3",
     title: "Rufus Konopelski",
-    img: "http://placeimg.com/640/480/transport",
+    img: "https://picsum.photos/640/480?random=3",
     desc: "Andy shoes are designed to keeping in mind durability",
   },
   {
     id: "4",
     title: "Ray Boyle",
-    img: "http://placeimg.com/640/480/transport",
+    img: "https://picsum.photos/640/480?random=4",
     desc: "Andy shoes are designed to keeping in mind durability",
   },
   {
     id: "5",
     title: "Jacqueline Hills",
-    img: "http://placeimg.com/640/480/fashion",
+    img: "https://picsum.photos/640/480?random=5",
     desc: "Andy shoes are designed to keeping in mind durability",
   },
   {
     id: "6",
     title: "Lee Abbott",
-    img: "http://placeimg.com/640/480/people",
+    img: "https://picsum.photos/640/480?random=6",
     desc: "Andy shoes are designed to keeping in mind durability",
   },
 ];

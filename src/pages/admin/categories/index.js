@@ -1,8 +1,8 @@
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
-import { newsColumns, newsData } from "../../../data/news";
+import { categoryColumns, categoryData } from "../../../data/categories";
 
-const News = {
+const Category = {
   print() {
     return /* html */`
       <div class="container px-6 mx-auto grid">
@@ -25,9 +25,9 @@ const News = {
           ${Button.print("Add new")}
         </a>
       </div>
-      ${Table.print(newsColumns, newsData)}
+      ${Table.print(categoryColumns, categoryData)}
     `;
   },
 };
 
-export default News;
+export default Category;

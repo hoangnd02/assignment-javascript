@@ -17,6 +17,11 @@ import Products from "./pages/admin/products";
 import DefaultTemplate from "./templates/DefaultTemplate";
 import Cart from "./pages/Cart";
 import getApiProvince from "./utils/getApiProvince";
+import NotFound from "./pages/NotFound";
+import NewsPage from "./pages/News";
+import Category from "./pages/admin/categories";
+import addCategory from "./pages/admin/categories/add";
+import editCategory from "./pages/admin/categories/edit";
 // import products from "./data/products";
 // import products from "./products";
 // import MenuList from "./components/MenuList";
@@ -35,6 +40,9 @@ router.on({
   "/product/:id": (data) => {
     render(DetailPage, ClientTemplate, data);
   },
+  "/news": (data) => {
+    render(NewsPage, ClientTemplate, data);
+  },
   "/about": (data) => {
     render(About, ClientTemplate, data);
   },
@@ -50,6 +58,17 @@ router.on({
   },
   "/admin": (data) => {
     render(Dashboard, AdminTemplate, data);
+  },
+  "/admin/categories": (data) => {
+    render(Category, AdminTemplate, data);
+  },
+  "/admin/categories/add": (data) => {
+    render(addCategory, AdminTemplate, data);
+    previewImages();
+  },
+  "/admin/categories/edit/:id": (data) => {
+    render(editCategory, AdminTemplate, data);
+    previewImages();
   },
   "/admin/products": (data) => {
     render(Products, AdminTemplate, data);
@@ -89,6 +108,6 @@ router.on({
 // productsElement.innerHTML = productHtml;
 // activesElement.innerHTML = productHtml;
 
-router.notFound(() => console.log("not found"));
+router.notFound((data) => render(NotFound, ClientTemplate, data));
 
 router.resolve();

@@ -381,7 +381,7 @@ const Header = {
               </div>
 
               <div class="flow-root">
-                <a href="/about" class="-m-2 p-2 block font-medium text-gray-900">About</a>
+                <a href="/news" class="-m-2 p-2 block font-medium text-gray-900">News</a>
               </div>
             </div>
 
@@ -806,7 +806,7 @@ const Header = {
 
                     <a href="/admin" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Admin</a>
 
-                    <a href="/about" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">About</a>
+                    <a href="/news" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">News</a>
                   </div>
                 </div>
 
