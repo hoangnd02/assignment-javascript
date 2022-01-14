@@ -1,8 +1,8 @@
-import products from "../data/products";
+import { productsData } from "../data/products";
 
 const DetailPage = {
   print(id) {
-    const findProduct = products.find((product) => product.id === id);
+    const findProduct = productsData.find((product) => product.id === id);
     return /* html */`
       <div class="bg-white">
         <div class="pt-6">

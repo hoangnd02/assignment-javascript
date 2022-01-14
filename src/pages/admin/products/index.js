@@ -1,8 +1,8 @@
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
-import { newsColumns, newsData } from "../../../data/news";
+import { productColumns, productsData } from "../../../data/products";
 
-const News = {
+const Products = {
   print() {
     return /* html */`
       <div class="container px-6 mx-auto grid">
@@ -23,9 +23,9 @@ const News = {
       <div class="w-[100px] mx-10">
         ${Button.print("Add new")}
       </div>
-      ${Table.print(newsColumns, newsData)}
+      ${Table.print(productColumns, productsData)}
     `;
   },
 };
 
-export default News;
+export default Products;

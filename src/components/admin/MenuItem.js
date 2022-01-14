@@ -1,4 +1,4 @@
-import menuListAdmin from "../data/MenuAdmin";
+import menuListAdmin from "../../data/MenuAdmin";
 
 const MenuItem = {
   print() {
