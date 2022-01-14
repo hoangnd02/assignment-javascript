@@ -6,6 +6,8 @@ import Signin from "./pages/Signin";
 import News from "./pages/admin/news";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/admin";
+import addProduct from "./pages/admin/products/add";
+import editProduct from "./pages/admin/products/edit";
 import addNews from "./pages/admin/news/add";
 import editNews from "./pages/admin/news/edit";
 import previewImages from "./utils/previewImages";
@@ -13,6 +15,8 @@ import AdminTemplate from "./templates/Admin";
 import ClientTemplate from "./templates/Client";
 import Products from "./pages/admin/products";
 import DefaultTemplate from "./templates/DefaultTemplate";
+import Cart from "./pages/Cart";
+import getApiProvince from "./utils/getApiProvince";
 // import products from "./data/products";
 // import products from "./products";
 // import MenuList from "./components/MenuList";
@@ -40,16 +44,26 @@ router.on({
   "/signup": (data) => {
     render(Signup, DefaultTemplate, data);
   },
+  "/cart": (data) => {
+    render(Cart, ClientTemplate, data);
+    getApiProvince();
+  },
   "/admin": (data) => {
     render(Dashboard, AdminTemplate, data);
   },
   "/admin/products": (data) => {
     render(Products, AdminTemplate, data);
+  },
+  "/admin/products/add": (data) => {
+    render(addProduct, AdminTemplate, data);
+    previewImages();
+  },
+  "/admin/products/edit/:id": (data) => {
+    render(editProduct, AdminTemplate, data);
     previewImages();
   },
   "/admin/news": (data) => {
     render(News, AdminTemplate, data);
-    previewImages();
   },
   "/admin/news/add": (data) => {
     render(addNews, AdminTemplate, data);

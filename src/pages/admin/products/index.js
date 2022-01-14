@@ -21,7 +21,9 @@ const Products = {
         </h2>
       </div>
       <div class="w-[100px] mx-10">
-        ${Button.print("Add new")}
+        <a href="/admin/products/add">
+          ${Button.print("Add new")}
+        </a>  
       </div>
       ${Table.print(productColumns, productsData)}
     `;
