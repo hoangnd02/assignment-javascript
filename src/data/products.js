@@ -62,6 +62,27 @@ const productsData = [
     desc: "Black",
     price: "$35",
   },
+  {
+    id: "3",
+    name: "Product 3",
+    image: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    desc: "Black",
+    price: "$35",
+  },
+  {
+    id: "4",
+    name: "Product 4",
+    image: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    desc: "Black",
+    price: "$35",
+  },
+  {
+    id: "5",
+    name: "Product 5",
+    image: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    desc: "Black",
+    price: "$35",
+  },
 ];
 
 export { productColumns, productsData };

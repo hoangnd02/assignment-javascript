@@ -1,4 +1,4 @@
-const products = [
+const productsLab1 = [
   {
     image: "./a392fd8851ca9c94c5db.jpg",
     title: "Vinh danh 295 sinh viên FPT Poly học kỳ spring",
@@ -16,4 +16,4 @@ const products = [
   },
 ];
 
-export default products;
+export default productsLab1;

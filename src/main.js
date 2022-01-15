@@ -16,15 +16,14 @@ import ClientTemplate from "./templates/Client";
 import Products from "./pages/admin/products";
 import DefaultTemplate from "./templates/DefaultTemplate";
 import Cart from "./pages/Cart";
+import Lab1 from "./pages/Lab1";
 import getApiProvince from "./utils/getApiProvince";
 import NotFound from "./pages/NotFound";
 import NewsPage from "./pages/News";
 import Category from "./pages/admin/categories";
 import addCategory from "./pages/admin/categories/add";
 import editCategory from "./pages/admin/categories/edit";
-// import products from "./data/products";
-// import products from "./products";
-// import MenuList from "./components/MenuList";
+import productsLab1 from "./products";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -92,21 +91,26 @@ router.on({
     render(editNews, AdminTemplate, data);
     previewImages();
   },
+  "/lab1": () => {
+    const app = document.querySelector("#app");
+
+    const productHtml = productsLab1.map(
+      (product) => `<div class="border border-[#ccc] p-8">
+        <img class="w-full" src="${product.image}" alt="">
+        <div class="text-[#ca7703] text-[18px] my-2">${product.title}</div>
+        <div>${product.content}</div>
+      </div>`,
+    ).join("");
+
+    app.innerHTML = Lab1.print();
+
+    const productsElement = document.querySelector(".products");
+    const activesElement = document.querySelector(".actives");
+
+    productsElement.innerHTML = productHtml;
+    activesElement.innerHTML = productHtml;
+  },
 });
-
-// const productsElement = document.querySelector(".products");
-// const activesElement = document.querySelector(".actives");
-
-// const productHtml = products.map(
-//   (product) => `<div class="border border-[#ccc] p-8">
-//     <img class="w-full" src="${product.image}" alt="">
-//     <div class="text-[#ca7703] text-[18px] my-2">${product.title}</div>
-//     <div>${product.content}</div>
-//   </div>`,
-// ).join("");
-
-// productsElement.innerHTML = productHtml;
-// activesElement.innerHTML = productHtml;
 
 router.notFound((data) => render(NotFound, ClientTemplate, data));
 

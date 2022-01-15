@@ -9,7 +9,7 @@ const News = {
       <h2 class="my-6 text-2xl w-full font-semibold text-gray-700 dark:text-gray-200">List news</h2>
 
       <div class="w-[100px]">
-        <a href="/admin/products/add" class="w-[100px]">
+        <a href="/admin/news/add" class="w-[100px]">
           ${Button.print("Add new")}
         </a>  
       </div>
