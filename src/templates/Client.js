@@ -9,6 +9,9 @@ const ClientTemplate = {
       ${Footer.print()}
     `;
   },
+  afterRender() {
+    Header.afterRender();
+  },
 };
 
 export default ClientTemplate;

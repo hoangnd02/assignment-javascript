@@ -1,5 +1,7 @@
+import addCategory from "./add";
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
+import editCategory from "./edit";
 import { categoryColumns, categoryData } from "../../../data/categories";
 
 const Category = {
@@ -19,4 +21,4 @@ const Category = {
   },
 };
 
-export default Category;
+export { Category, addCategory, editCategory };

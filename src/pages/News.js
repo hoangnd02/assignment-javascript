@@ -1,7 +1,10 @@
+import axios from "axios";
 import { newsData } from "../data/news";
 
 const NewsPage = {
-  print() {
+  async print() {
+    const { data } = await axios.get("https://5e79b4b817314d00161333da.mockapi.io/posts");
+
     return /* html */`
       <section class="bg-coolGray-100 text-coolGray-800">
         <div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
@@ -14,14 +17,14 @@ const NewsPage = {
             </div>
           </a>
           <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            ${newsData.map((item) => /* html */`
+            ${data.map((item) => /* html */`
               <a href="#" class="shadow max-w-sm mx-auto group hover:no-underline focus:no-underline bg-coolGray-50">
                 <img role="presentation" class="object-cover w-full rounded h-44 bg-coolGray-500" src="${item.img}">
                 <div class="p-6 space-y-2">
                   <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">${item.title}</h3>
                   <span class="text-xs text-coolGray-600">January 21, 2021</span>
                   <p>${item.desc}</p>
-                </div>
+                </div>  
               </a>
             `).join("")}
           </div>

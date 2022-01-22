@@ -2,9 +2,12 @@ import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import { productsData } from "../../../data/products";
+import fetchApi from "../../../utils/fetchApi";
 
 const editProduct = {
+  idProduct: 0,
   print(id) {
+    this.idProduct = id;
     const findProduct = productsData.find((item) => item.id === id);
     return /* html */`
       <div class="container px-6 mx-auto grid">
@@ -25,6 +28,19 @@ const editProduct = {
         </div>
       </div>
     `;
+  },
+  afterRender() {
+    const formAdd = document.getElementById("form");
+    formAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const product = {
+        name: document.getElementById("Name product").value,
+        price: document.getElementById("Price product").value,
+        des: document.getElementById("Desc").value,
+      };
+      const data = await fetchApi(`https://5e79b4b817314d00161333da.mockapi.io/posts/${this.idProduct}`, "PUT", product);
+      console.log(data);
+    });
   },
 };
 

@@ -1,3 +1,5 @@
+import getCart from "../../utils/getCart";
+
 const Header = {
   print() {
     return /* html */`
@@ -31,7 +33,7 @@ const Header = {
           -->
           <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
             <div class="px-4 pt-5 pb-2 flex">
-              <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+              <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-white">
                 <span class="sr-only">Close menu</span>
                 <!-- Heroicon name: outline/x -->
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -406,12 +408,12 @@ const Header = {
           </div>
         </div>
 
-        <header class="relative bg-white z-20">
+        <header class="relative bg-[#2874f0] z-20">
           <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-b border-gray-200">
+            <div class="">
               <div class="h-16 flex items-center">
                 <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-                <button type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+                <button type="button" class="bg-white p-2 rounded-md text-white lg:hidden">
                   <span class="sr-only">Open menu</span>
                   <!-- Heroicon name: outline/menu -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -423,7 +425,7 @@ const Header = {
                 <div class="ml-4 flex lg:ml-0">
                   <a href="#">
                     <span class="sr-only">Workflow</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
+                    <img class="h-8 w-auto" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png" alt="">
                   </a>
                 </div>
 
@@ -433,7 +435,7 @@ const Header = {
                     <div class="group flex">
                       <div class="relative flex">
                         <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                        <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
+                        <button type="button" class="border-transparent text-white hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
                           Women
                         </button>
                       </div>
@@ -629,7 +631,7 @@ const Header = {
                     <div class="flex group">
                       <div class="relative flex">
                         <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                        <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
+                        <button type="button" class="border-transparent text-white hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
                           Men
                         </button>
                       </div>
@@ -804,17 +806,17 @@ const Header = {
                       </div>
                     </div>
 
-                    <a href="/admin" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Admin</a>
+                    <a href="/admin" class="flex items-center text-sm font-medium text-white hover:text-white">Admin</a>
 
-                    <a href="/news" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">News</a>
+                    <a href="/news" class="flex items-center text-sm font-medium text-white hover:text-white">News</a>
                   </div>
                 </div>
 
                 <div class="ml-auto flex items-center">
                   <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a href="/signin" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+                    <a href="/signin" class="text-sm font-medium text-white">Sign in</a>
                     <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                    <a href="/signup" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+                    <a href="/signup" class="text-sm font-medium text-white">Create account</a>
                   </div>
 
                   <!-- Search -->
@@ -822,7 +824,7 @@ const Header = {
                     <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
                       <span class="sr-only">Search</span>
                       <!-- Heroicon name: outline/search -->
-                      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                       </svg>
                     </a>
@@ -832,10 +834,10 @@ const Header = {
                   <div class="ml-4 flow-root lg:ml-6">
                     <a href="/cart" class="group -m-2 p-2 flex items-center">
                       <!-- Heroicon name: outline/shopping-bag -->
-                      <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <svg class="text-white flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                       </svg>
-                      <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                      <span class="count-cart ml-2 text-sm font-medium text-white">0</span>
                       <span class="sr-only">items in cart, view bag</span>
                     </a>
                   </div>
@@ -845,6 +847,12 @@ const Header = {
           </nav>
         </header>
     `;
+  },
+
+  afterRender() {
+    const productCart = getCart();
+    const countCart = productCart.length;
+    document.querySelector(".count-cart").innerHTML = countCart;
   },
 };
 

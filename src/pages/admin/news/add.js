@@ -1,6 +1,7 @@
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import fetchApi from "../../../utils/fetchApi";
 
 const addNews = {
   print() {
@@ -22,6 +23,19 @@ const addNews = {
         </div>
       </div>
     `;
+  },
+  afterRender() {
+    const formAdd = document.getElementById("form");
+    formAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const news = {
+        name: document.getElementById("Name product").value,
+        price: document.getElementById("Price product").value,
+        des: document.getElementById("Desc").value,
+      };
+      const data = await fetchApi(`https://5e79b4b817314d00161333da.mockapi.io/posts`, "POST", news);
+      console.log(data);
+    });
   },
 };
 

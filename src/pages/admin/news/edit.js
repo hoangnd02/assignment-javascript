@@ -2,9 +2,12 @@ import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import { newsData } from "../../../data/news";
+import fetchApi from "../../../utils/fetchApi";
 
 const editNews = {
+  idNews: 0,
   print(id) {
+    this.idNews = id;
     const findNews = newsData.find((item) => item.id === id);
     return /* html */`
       <div class="container px-6 mx-auto grid">
@@ -24,6 +27,18 @@ const editNews = {
         </div>
       </div>
     `;
+  },
+  afterRender() {
+    const formAdd = document.getElementById("form");
+    formAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const news = {
+        title: document.getElementById("Title").value,
+        content: document.getElementById("Content").value,
+      };
+      const data = await fetchApi(`https://5e79b4b817314d00161333da.mockapi.io/posts/${this.idNews}`, "PUT", news);
+      console.log(data);
+    });
   },
 };
 

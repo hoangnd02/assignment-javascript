@@ -1,12 +1,13 @@
+import productFeature from "../components/product-feature";
 import { productsData } from "../data/products";
+import addCart from "../utils/addCart";
 
 const DetailPage = {
   print(id) {
     const findProduct = productsData.find((product) => product.id === id);
-
     return /* html */`
-      <div class="bg-white">
-        <section class="text-gray-700 body-font overflow-hidden bg-white">
+      <div class="bg-[#f1f3f6] py-6 px-4">
+        <section class="mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
           <div class="container px-5 py-16 mx-auto">
             <div class="lg:w-4/5 mx-auto flex justify-around flex-wrap">
               <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded border border-gray-200" src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg">
@@ -37,12 +38,9 @@ const DetailPage = {
                   <span class="mr-3 w-[100px] items-center flex">Quantity</span>
                   <div class="title-font font-medium text-2xl text-gray-900">
                     <div class="flex justify-center ">
-                      <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                      </svg>
-      
-                      <input class="mx-2 border text-center w-8" type="text" value="1">
-      
-                      <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                      <svg id="down-quantity" class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
+                      <input id="quantity" class="mx-2 border text-center w-8" type="text" value="1">
+                      <svg id="up-quantity" class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
                         <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
                       </svg>
                     </div>
@@ -50,15 +48,35 @@ const DetailPage = {
                 </div>
                 <div class="flex mt-6 pb-5 mb-5">
                   <span class="mr-3 w-[100px] flex items-center">Price</span>
-                  <span class="title-font font-medium text-2xl text-gray-900 pr-10 pl-3">${findProduct.price}</span>
+                  <span class="title-font font-medium text-2xl text-gray-900 pr-10 pl-3">$${findProduct.price}</span>
                 </div>
-                <button id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
+                <button data-id="${findProduct.id}" id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
               </div>
             </div>
           </div>
         </section>
-      </div>
+        <div class="other_products p-4 mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
+          <h2 class="text-2xl border-b-[1px] mx-[-16px] px-6 py-4 font-bold text-gray-900">
+            Other products
+          </h2>
+          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            ${productFeature.print()}
+          </div>
+        </div>
+        </div>
     `;
+  },
+  afterRender() {
+    addCart();
+
+    const downQuantity = document.getElementById("down-quantity");
+    downQuantity.addEventListener("click", () => {
+      document.getElementById("quantity").value -= 1;
+    });
+    const upQuantity = document.getElementById("up-quantity");
+    upQuantity.addEventListener("click", () => {
+      document.getElementById("quantity").value = +document.getElementById("quantity").value + 1;
+    });
   },
 };
 

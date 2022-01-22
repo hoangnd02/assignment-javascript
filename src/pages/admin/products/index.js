@@ -1,3 +1,5 @@
+import addProduct from "./add";
+import editProduct from "./edit";
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
 import { productColumns, productsData } from "../../../data/products";
@@ -19,4 +21,4 @@ const Products = {
   },
 };
 
-export default Products;
+export { Products, editProduct, addProduct };
