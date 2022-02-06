@@ -13,7 +13,7 @@ import { Products, addProduct, editProduct } from "./pages/admin/products";
 import { ClientTemplate, AdminTemplate, DefaultTemplate } from "./templates";
 import { Category, addCategory, editCategory } from "./pages/admin/categories";
 
-const router = new Navigo("/", { linksSelector: "a" });
+const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const render = async (content, page, data = null) => {
   document.querySelector("#app").innerHTML = page.print();
