@@ -2,7 +2,7 @@ import getCart from "../../utils/getCart";
 
 const Header = {
   print() {
-    return /* html */`
+    return /* html */ `
         <!--
           Mobile menu
 
@@ -851,8 +851,8 @@ const Header = {
 
   afterRender() {
     const productCart = getCart();
-    const countCart = productCart.length;
-    document.querySelector(".count-cart").innerHTML = countCart;
+    const countCart = productCart === null ? 0 : productCart.length;
+    if (countCart) document.querySelector(".count-cart").innerHTML = countCart;
   },
 };
 

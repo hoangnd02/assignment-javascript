@@ -5,14 +5,16 @@ import addCart from "../utils/addCart";
 const DetailPage = {
   print(id) {
     const findProduct = productsData.find((product) => product.id === id);
-    return /* html */`
-      <div class="bg-[#f1f3f6] py-6 px-4">
+    return /* html */ `
+      <div class="bg-[#f1f3f6] py-6 px-12">
         <section class="mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
           <div class="container px-5 py-16 mx-auto">
             <div class="lg:w-4/5 mx-auto flex justify-around flex-wrap">
               <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded border border-gray-200" src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg">
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${findProduct.name}</h1>
+                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${
+                  findProduct.name
+                }</h1>
                 <div class="flex mb-4">
                 </div>
                 <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
@@ -48,9 +50,13 @@ const DetailPage = {
                 </div>
                 <div class="flex mt-6 pb-5 mb-5">
                   <span class="mr-3 w-[100px] flex items-center">Price</span>
-                  <span class="title-font font-medium text-2xl text-gray-900 pr-10 pl-3">$${findProduct.price}</span>
+                  <span class="title-font font-medium text-2xl text-gray-900 pr-10 pl-3">$${
+                    findProduct.price
+                  }</span>
                 </div>
-                <button data-id="${findProduct.id}" id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
+                <button data-id="${
+                  findProduct.id
+                }" id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
               </div>
             </div>
           </div>
@@ -75,7 +81,8 @@ const DetailPage = {
     });
     const upQuantity = document.getElementById("up-quantity");
     upQuantity.addEventListener("click", () => {
-      document.getElementById("quantity").value = +document.getElementById("quantity").value + 1;
+      document.getElementById("quantity").value =
+        +document.getElementById("quantity").value + 1;
     });
   },
 };

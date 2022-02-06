@@ -3,7 +3,7 @@ import productFeature from "../components/product-feature";
 const HomePage = {
   print: () => `
     <div class="bg-[#f1f3f6] py-6">
-      <div class="banner mx-8">
+      <div class="banner max-w-7xl mx-auto">
         <img class="w-full" src="/696530b4a7fce224389b4754eb9cd57c88bfc148c6010602030af513.jpg"/>
       </div>
       <div class="bg-white mt-6 shadow border-[1px] max-w-2xl mx-auto py-2 px-4 lg:max-w-7xl">
