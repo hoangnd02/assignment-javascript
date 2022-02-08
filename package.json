@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "json-server": "^0.17.0",
-    "navigo": "^8.11.1"
+    "navigo": "^8.11.1",
+    "toastr": "^2.1.4"
   }
 }

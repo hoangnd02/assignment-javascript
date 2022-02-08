@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import { productsData } from "../../../data/products";
-import fetchApi from "../../../utils/fetchApi";
+import toastr from "toastr";
 
 const editProduct = {
   idProduct: 0,
@@ -46,12 +46,16 @@ const editProduct = {
         price: document.getElementById("Price product").value,
         des: document.getElementById("Desc").value,
       };
-      const data = await fetchApi(
-        `https://5e79b4b817314d00161333da.mockapi.io/posts/${this.idProduct}`,
-        "PUT",
-        product
-      );
-      console.log(data);
+      try {
+        const { data } = await axios.put(
+          `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/${this.idProduct}`,
+          product
+        );
+        console.log(data);
+        toastr.success("Successfully");
+      } catch (error) {
+        toastr.error("Error");
+      }
     });
   },
 };

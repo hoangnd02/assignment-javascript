@@ -1,3 +1,5 @@
+import toastr from "toastr";
+
 const addCart = () => {
   const addBtn = document.querySelector("#add-btn");
 
@@ -18,6 +20,9 @@ const addCart = () => {
     if (!checkProduct) {
       cartProduct.push(newProduct);
       localStorage.setItem("cart", JSON.stringify(cartProduct));
+      toastr.success("Add product successfully", "Successfully");
+    } else {
+      toastr.error("Product has already in cart", "Error");
     }
   });
 };

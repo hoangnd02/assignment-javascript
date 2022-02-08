@@ -4,6 +4,7 @@ import editProduct from "./edit";
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
 import { productColumns } from "../../../data/products";
+import toastr from "toastr";
 
 const Products = {
   async print() {
@@ -21,6 +22,24 @@ const Products = {
       </div>
       ${Table.print("products", productColumns, data)}
     `;
+  },
+  afterRender() {
+    const del_btn = document.querySelectorAll("#del_btn");
+    del_btn.forEach((btn) => {
+      console.log(btn);
+      btn.addEventListener("click", async function () {
+        const { id } = this.dataset;
+        console.log(id, btn);
+        try {
+          await axios.delete(
+            `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/${id}`
+          );
+          toastr.success("Successfully");
+        } catch (error) {
+          toastr.error("Error");
+        }
+      });
+    });
   },
 };
 

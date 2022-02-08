@@ -14,9 +14,9 @@ const Row = {
     }" class="text-indigo-600 hover:text-indigo-900">Edit</a>
         </td>
         <td class="w-[100px] px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <a href="/delete/${
+          <button data-id="${
             data.id
-          }" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+          }" id="del_btn" class="text-indigo-600 hover:text-indigo-900">Delete</button>
         </td>
       </tr>
     `;

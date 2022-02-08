@@ -12,6 +12,7 @@ import { News, editNews, addNews } from "./pages/admin/news";
 import { Products, addProduct, editProduct } from "./pages/admin/products";
 import { ClientTemplate, AdminTemplate, DefaultTemplate } from "./templates";
 import { Category, addCategory, editCategory } from "./pages/admin/categories";
+import Test from "./pages/admin/products/test";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -34,10 +35,13 @@ router.on({
   "/admin": () => render(Dashboard, AdminTemplate),
   "/admin/categories": () => render(Category, AdminTemplate),
   "/admin/categories/add": () => render(addCategory, AdminTemplate),
-  "/admin/categories/edit/:id": ({ data }) => render(editCategory, AdminTemplate, data),
+  "/admin/categories/edit/:id": ({ data }) =>
+    render(editCategory, AdminTemplate, data),
   "/admin/products": () => render(Products, AdminTemplate),
+  "/admin/products/test": () => render(Test, AdminTemplate),
   "/admin/products/add": () => render(addProduct, AdminTemplate),
-  "/admin/products/edit/:id": ({ data }) => render(editProduct, AdminTemplate, data),
+  "/admin/products/edit/:id": ({ data }) =>
+    render(editProduct, AdminTemplate, data),
   "/admin/news": () => render(News, AdminTemplate),
   "/admin/news/add": () => render(addNews, AdminTemplate),
   "/admin/news/edit/:id": ({ data }) => render(editNews, AdminTemplate, data),
