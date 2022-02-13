@@ -1,4 +1,6 @@
+import toastr from "toastr";
 import getCart from "../../utils/getCart";
+import reRender from "../../utils/reRender";
 
 const Header = {
   print() {
@@ -813,12 +815,19 @@ const Header = {
                 </div>
 
                 <div class="ml-auto flex items-center">
-                  <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a href="/signin" class="text-sm font-medium text-white">Sign in</a>
-                    <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                    <a href="/signup" class="text-sm font-medium text-white">Create account</a>
-                  </div>
-
+                ${
+                  localStorage.getItem("user")
+                    ? `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                          <a href="/signin" id="account-email" class="text-sm font-medium text-white">Hoang</a>
+                          <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                          <div id="logout" class="text-sm font-medium text-white">Logout</div>
+                      </div>`
+                    : `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                        <a href="/signin" class="text-sm font-medium text-white">Sign in</a>
+                        <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                        <a href="/signup" class="text-sm font-medium text-white">Create account</a>
+                      </div>`
+                }
                   <!-- Search -->
                   <div class="flex lg:ml-6">
                     <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
@@ -853,6 +862,21 @@ const Header = {
     const productCart = getCart();
     const countCart = productCart === null ? 0 : productCart.length;
     if (countCart) document.querySelector(".count-cart").innerHTML = countCart;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    const logout = document.querySelector("#logout");
+    console.log(user);
+
+    if (user) {
+      document.querySelector("#account-email").innerHTML = user.email;
+    }
+    // logout
+    if (logout) {
+      logout.addEventListener("click", () => {
+        toastr.success("Logout thành công");
+        localStorage.removeItem("user");
+      });
+    }
   },
 };
 

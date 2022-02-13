@@ -11,16 +11,21 @@ const productColumns = [
   },
   {
     id: 3,
+    name: "category",
+    type: "text",
+  },
+  {
+    id: 4,
     name: "image",
     type: "image",
   },
   {
-    id: 4,
+    id: 5,
     name: "desc",
     type: "description",
   },
   {
-    id: 5,
+    id: 6,
     name: "price",
     type: "text",
   },

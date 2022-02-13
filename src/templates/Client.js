@@ -3,8 +3,10 @@ import Header from "../components/client/Header";
 
 const ClientTemplate = {
   print() {
-    return /* html */`
-      ${Header.print()}
+    return /* html */ `
+      <div id="header">
+        ${Header.print()}
+      </div>
       <div id="page"></div>
       ${Footer.print()}
     `;

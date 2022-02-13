@@ -1,53 +1,115 @@
 {
+  "users": [
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$CmqDN5u7sFop.c4LaOSBEuJO1YqfKdwSKZH/dRB7jSS4KANaD5uBC",
+      "firstName": "123",
+      "lastName": "123",
+      "id": 1
+    },
+    {
+      "email": "1234@gmail.com",
+      "password": "$2a$10$mvNLoL/dDXiFCidwsZZtl../ufhrcCmpGhU.A8mc8jymWaMINPebC",
+      "firstName": "123",
+      "lastName": "123",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "123"
+    },
+    {
+      "title": "men",
+      "id": 2
+    },
+    {
+      "title": "women",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "name": "hoang 333",
+      "price": "56",
+      "des": "234",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644762200/js/oaj3mrzckj3fatnuib32.jpg",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "hoang",
+      "category": "men",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644318772/js/f9prllpoigxz7ahqwsad.jpg",
+      "desc": "123",
+      "price": "9999999"
+    },
+    {
+      "id": 4,
+      "name": "123",
+      "category": "123",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644485518/js/xijh3jkaksfbuptsjpx5.jpg",
+      "desc": "123",
+      "price": "123"
+    },
+    {
+      "name": "123124",
+      "category": "123",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644740829/js/agwa8qy86ftmaka3gs1z.jpg",
+      "desc": "",
+      "price": "124124",
+      "id": 5
+    },
+    {
+      "name": "132",
+      "category": "women",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644761623/js/rwzofuoktsdreay2udbs.png",
+      "desc": "123",
+      "price": "123",
+      "id": 6
+    },
+    {
+      "name": "123",
+      "category": "men",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644761736/js/yx7sfslp3xt4igi3v2o2.jpg",
+      "desc": "123",
+      "price": "123",
+      "id": 7
+    },
+    {
+      "name": "123",
+      "category": "123",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644761875/js/xf6tkayiu0baxfekfxpo.png",
+      "desc": "123",
+      "price": "123",
+      "id": 8
+    }
+  ],
   "posts": [
     {
-      "createdAt": "2022-01-15T02:34:50.705Z",
-      "title": "Mới update title này",
-      "img": "http://placeimg.com/640/480/business",
-      "desc": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-      "id": "7"
+      "id": 10,
+      "title": "123",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644395939/js/vhy9fhdalpfawn8oytcc.jpg",
+      "desc": "123"
     },
     {
-      "createdAt": "2022-01-15T01:54:24.955Z",
-      "title": "Tiffany Wisoky",
-      "img": "http://placeimg.com/640/480/cats",
-      "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "id": "8"
+      "id": 11,
+      "title": "123",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644396448/js/mdqcpckatpmuzgsreyv5.jpg",
+      "desc": "123"
     },
     {
-      "createdAt": "2022-01-15T02:36:13.715Z",
-      "title": "Mr. Doug Purdy",
-      "img": "http://placeimg.com/640/480/nature",
-      "desc": "The Football Is Good For Training And Recreational Purposes",
-      "id": "9"
+      "title": "123",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644484140/js/c8py6lavafutqpsrdu28.jpg",
+      "des": "123",
+      "id": 12
     },
     {
-      "createdAt": "2022-01-14T12:38:27.738Z",
-      "title": "bài viết này được đổi",
-      "img": "http://placeimg.com/640/480/nature",
-      "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-      "id": "10"
-    },
-    {
-      "createdAt": "2022-01-14T17:58:26.446Z",
-      "title": "Vickie Jast",
-      "img": "http://placeimg.com/640/480/technics",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      "id": "11"
-    },
-    {
-      "createdAt": "2022-01-15T02:21:11.908Z",
-      "title": "Mrs. Drew Farrell",
-      "img": "http://placeimg.com/640/480/fashion",
-      "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-      "id": "13"
-    },
-    {
-      "createdAt": "2022-01-14T11:14:02.843Z",
-      "title": "Lorena Cole",
-      "img": "http://placeimg.com/640/480/technics",
-      "desc": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-      "id": "14"
+      "title": "123",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644765272/js/xi6ixsfau3wsd1q1xzex.jpg",
+      "des": "123",
+      "id": 13
     }
   ]
 }

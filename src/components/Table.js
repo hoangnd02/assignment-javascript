@@ -2,7 +2,11 @@ import Row from "./Row";
 
 const Table = {
   print(type, column, data) {
-    const keys = Object.keys(data[0]);
+    let keys = [];
+    if (data.length > 0) {
+      keys = Object.keys(data[0]);
+    }
+    console.log(data);
     return /* html */ `
       <div class="py-[20px] px-8 flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -1,10 +1,12 @@
+import axios from "axios";
+import toastr from "toastr";
 import Button from "../components/Button";
 import Form from "../components/Form";
 import Input from "../components/Input";
 
 const Signup = {
   print() {
-    return /* html */`
+    return /* html */ `
       <div class="min-h-[657px] bg-[url('https://random.imagecdn.app/1400/800')] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="p-10 rounded bg-[#fff] shadow max-w-[540px] w-full space-y-8">
           <div>
@@ -18,11 +20,11 @@ const Signup = {
               </a>
             </p>
           </div>
-          ${Form.print(/* html */`
+          ${Form.print(/* html */ `
             ${Input.print("text", "First name", "First name")}
             ${Input.print("text", "Last name", "Last name")}
             ${Input.print("text", "Email", "Email")}
-            ${Input.print("text", "Password", "Password")}
+            ${Input.print("password", "Password", "Password")}
             <div class="py-3 text-right">
               ${Button.print("Sign up")}
             </div>
@@ -35,6 +37,29 @@ const Signup = {
         </div>
       </div>
     `;
+  },
+  afterRender() {
+    const formAdd = document.getElementById("form");
+    console.log(formAdd);
+
+    formAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const newUser = {
+        firstName: document.getElementById("First name").value,
+        lastName: document.getElementById("Last name").value,
+        email: document.getElementById("Email").value,
+        password: document.getElementById("Password").value,
+      };
+
+      try {
+        await axios.post("http://localhost:3001/signup", newUser);
+        document.location.href = "/";
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    });
   },
 };
 

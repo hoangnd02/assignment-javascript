@@ -3,19 +3,18 @@ import toastr from "toastr";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
-import { newsData } from "../../../data/news";
 import fetchApi from "../../../utils/fetchApi";
 import previewImages from "../../../utils/previewImages";
 
-const editNews = {
-  idNews: 0,
+const editUser = {
+  iduser: 0,
   async print(id) {
-    this.idNews = id;
+    this.iduser = id;
     const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
     console.log(data);
     return /* html */ `
       <div class="container px-6 mx-auto grid">
-        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit news</h2>
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit user</h2>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -68,13 +67,13 @@ const editNews = {
         }
       }
 
-      const news = {
+      const user = {
         title: document.getElementById("Title").value,
         img: image ? image : document.querySelector("#image").src,
         desc: document.getElementById("Content").value,
       };
       try {
-        await axios.put(`http://localhost:3001/posts/${this.idNews}`, news);
+        await axios.put(`http://localhost:3001/posts/${this.iduser}`, user);
         console.log("object");
         toastr.success("Successfully");
       } catch (error) {
@@ -84,4 +83,4 @@ const editNews = {
   },
 };
 
-export default editNews;
+export default editUser;

@@ -5,23 +5,23 @@ import axios from "axios";
 
 const DetailPage = {
   async print(id) {
-    const { data } = await axios.get(
-      `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:3001/products/${id}`);
     console.log(data);
     return /* html */ `
       <div class="bg-[#f1f3f6] py-6 px-12">
         <section class="mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
           <div class="container px-5 py-16 mx-auto">
             <div class="lg:w-4/5 mx-auto flex justify-around flex-wrap">
-              <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded border border-gray-200" src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg">
+              <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded border border-gray-200" src="${
+                data.image
+              }">
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${
                   data.name
                 }</h1>
                 <div class="flex mb-4">
                 </div>
-                <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                <p class="leading-relaxed">${data.desc}</p>
                 <div class="flex mt-6 items-center pb-5 mb-5">
                   <div class="flex items-center">
                     <span class="mr-3 w-[100px]">Size</span>

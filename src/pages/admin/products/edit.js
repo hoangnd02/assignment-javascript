@@ -2,16 +2,16 @@ import axios from "axios";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
-import { productsData } from "../../../data/products";
+import previewImages from "../../../utils/previewImages";
 import toastr from "toastr";
+import { Products } from "./index.js";
+import reRender from "../../../utils/reRender";
 
 const editProduct = {
   idProduct: 0,
   async print(id) {
     this.idProduct = id;
-    const { data } = await axios.get(
-      `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:3001/products/${id}`);
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit product</h2>
@@ -38,23 +38,59 @@ const editProduct = {
     `;
   },
   afterRender() {
+    const inputElement = document.querySelector("#file-upload");
+    let listImgs;
+
+    if (inputElement) {
+      inputElement.addEventListener("change", handleFiles);
+      function handleFiles() {
+        previewImages(this.files);
+        listImgs = this.files;
+      }
+    }
+
+    if (listImgs) {
+      console.log(listImgs);
+    }
+
     const formAdd = document.getElementById("form");
     formAdd.addEventListener("submit", async (e) => {
       e.preventDefault();
+      let image;
+
+      if (listImgs) {
+        const formData = new FormData();
+        formData.append("file", listImgs[0]);
+        formData.append("upload_preset", "axplfcjl");
+        try {
+          const { data } = await axios({
+            url: "https://api.cloudinary.com/v1_1/dqtnuqde5/image/upload",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-endcoded",
+            },
+            data: formData,
+          });
+          image = data.secure_url;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
       const product = {
         name: document.getElementById("Name product").value,
         price: document.getElementById("Price product").value,
         des: document.getElementById("Desc").value,
+        image: image ? image : document.querySelector("#image").src,
       };
       try {
-        const { data } = await axios.put(
-          `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/${this.idProduct}`,
+        await axios.put(
+          `http://localhost:3001/products/${this.idProduct}`,
           product
         );
-        console.log(data);
         toastr.success("Successfully");
       } catch (error) {
-        toastr.error("Error");
+        toastr.error(error);
       }
     });
   },

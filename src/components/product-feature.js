@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const { data } = await axios.get(
-  "https://61ffcacf5e1c4100174f6f70.mockapi.io/products"
-);
+const { data } = await axios.get("http://localhost:3001/products");
 const productsElement = await data
   .map(
     (product) => /* html */ `
