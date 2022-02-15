@@ -90,6 +90,12 @@ const ProductCart = {
         await reRender(Header, "#header");
       });
     });
+
+    const cartProduct = getCart();
+    const total = Object.keys(cartProduct).reduce(function (previous, key) {
+      return previous + cartProduct[key].quantity * cartProduct[key].price;
+    }, 0);
+    console.log(total);
   },
 };
 

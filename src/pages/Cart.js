@@ -4,6 +4,8 @@ import Input from "../components/Input";
 import ProductCart from "../components/ProductCart";
 import changeCountProduct from "../utils/changeCountProduct";
 import getApiProvince from "../utils/getApiProvince";
+import getCart from "../utils/getCart";
+import totalProduct from "../utils/totalProduct";
 
 const Cart = {
   async print() {
@@ -37,7 +39,7 @@ const Cart = {
               <div class="mt-8">
                 <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
-                  <span>$600</span>
+                  <span id="total_price"></span>
                 </div>
                 ${Button.print("Check out")}
               </div>
@@ -49,8 +51,8 @@ const Cart = {
   },
   afterRender() {
     getApiProvince();
-    changeCountProduct();
     ProductCart.afterRender();
+    totalProduct();
   },
 };
 
