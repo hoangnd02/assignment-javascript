@@ -6,7 +6,7 @@ const Table = {
     if (data.length > 0) {
       keys = Object.keys(data[0]);
     }
-    console.log(data);
+    console.log(data, column);
     return /* html */ `
       <div class="py-[20px] px-8 flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -15,11 +15,11 @@ const Table = {
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-gray-50">
                 <tr>
-                  ${keys
+                  ${column
                     .map(
                       (key) => /* html */ `
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      ${key}
+                      ${key.name}
                     </th>
                   `
                     )

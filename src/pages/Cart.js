@@ -4,7 +4,6 @@ import Input from "../components/Input";
 import ProductCart from "../components/ProductCart";
 import changeCountProduct from "../utils/changeCountProduct";
 import getApiProvince from "../utils/getApiProvince";
-import reRender from "../utils/reRender";
 
 const Cart = {
   async print() {
@@ -51,6 +50,7 @@ const Cart = {
   afterRender() {
     getApiProvince();
     changeCountProduct();
+    ProductCart.afterRender();
   },
 };
 

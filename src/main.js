@@ -15,6 +15,7 @@ import { Category, addCategory, editCategory } from "./pages/admin/categories";
 import { User } from "./pages/admin/users";
 import addUser from "./pages/admin/users/add";
 import editUser from "./pages/admin/users/edit";
+import Search from "./pages/Search";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -26,10 +27,25 @@ const render = async (content, page, data = null) => {
   if (content.afterRender) await content.afterRender();
 };
 
+router.on("/admin/*", () => {}, {
+  before: (done) => {
+    if (localStorage.getItem("user")) {
+      const userId = JSON.parse(localStorage.getItem("user")).id;
+      console.log(userId);
+      if (userId == 1) {
+        done();
+      } else {
+        document.location.href = "/";
+      }
+    }
+  },
+});
+
 router.on({
   "/": () => render(HomePage, ClientTemplate),
   "/cart": () => render(Cart, ClientTemplate),
   "/about": () => render(About, ClientTemplate),
+  "/search": () => render(Search, ClientTemplate),
   "/news": () => render(NewsPage, ClientTemplate),
   "/signin": () => render(Signin, DefaultTemplate),
   "/signup": () => render(Signup, DefaultTemplate),

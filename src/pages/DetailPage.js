@@ -1,12 +1,13 @@
 import addCart from "../utils/addCart";
-import { productsData } from "../data/products";
 import productFeature from "../components/product-feature";
 import axios from "axios";
 
 const DetailPage = {
   async print(id) {
     const { data } = await axios.get(`http://localhost:3001/products/${id}`);
-    console.log(data);
+    const otherProducts = await axios.get(
+      `http://localhost:3001/products/?category=${data.category}&_limit=4`
+    );
     return /* html */ `
       <div class="bg-[#f1f3f6] py-6 px-12">
         <section class="mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
@@ -21,25 +22,9 @@ const DetailPage = {
                 }</h1>
                 <div class="flex mb-4">
                 </div>
-                <p class="leading-relaxed">${data.desc}</p>
-                <div class="flex mt-6 items-center pb-5 mb-5">
-                  <div class="flex items-center">
-                    <span class="mr-3 w-[100px]">Size</span>
-                    <div class="relative">
-                      <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                        <option>SM</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                      </select>
-                      <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
-                          <path d="M6 9l6 6 6-6"></path>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <p class="leading-relaxed">- Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)</p>
+                <p class="leading-relaxed">- Tặng gói BH mở rộng Samsung Care+ (KH không cần thêm gói BH vào giỏ hàng). Sau khi nhận sản phẩm mới, liên hệ 1800 588 855 (nhấn phím 3) để kiểm tra dịch vụ</p>
+                <p class="leading-relaxed">- Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)</p>
                 <div class="flex mt-6 pb-5 mb-5">
                   <span class="mr-3 w-[100px] items-center flex">Quantity</span>
                   <div class="title-font font-medium text-2xl text-gray-900">
@@ -70,7 +55,29 @@ const DetailPage = {
             Other products
           </h2>
           <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            ${productFeature.print()}
+            ${otherProducts.data
+              .map(
+                (product) => /* html */ `
+              <div class="group relative z-10">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img src="${product.image}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                  <div>
+                    <h3 class="text-sm text-gray-700">
+                      <a href="#/product/${product.id}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        ${product.name}
+                      </a>
+                    </h3>
+                    <p class="mt-1 text-sm text-gray-500">${product.desc}</p>
+                  </div>
+                  <p class="text-sm font-medium text-gray-900">$${product.price}</p>
+                </div>
+              </div>
+            `
+              )
+              .join("")}
           </div>
         </div>
         </div>

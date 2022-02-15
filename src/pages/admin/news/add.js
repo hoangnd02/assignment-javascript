@@ -56,7 +56,7 @@ const addNews = {
       const news = {
         title: document.getElementById("Title").value,
         img: data.secure_url,
-        des: document.getElementById("Content").value,
+        desc: document.getElementById("Content").value,
       };
 
       try {
