@@ -1,8 +1,8 @@
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
-import axios from "axios";
 import toastr from "toastr";
+import { add } from "../../../api/category";
 
 const addCategory = {
   print() {
@@ -31,7 +31,7 @@ const addCategory = {
         title: document.getElementById("Title").value,
       };
       try {
-        await axios.post(`http://localhost:3001/categories`, category);
+        await add(category);
         toastr.success("Successfully");
       } catch (error) {
         console.log(error);

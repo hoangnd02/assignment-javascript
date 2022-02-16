@@ -1,18 +1,16 @@
 import axios from "axios";
 import toastr from "toastr";
+import { get, update } from "../../../api/post";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
-import { newsData } from "../../../data/news";
-import fetchApi from "../../../utils/fetchApi";
 import previewImages from "../../../utils/previewImages";
 
 const editNews = {
   idNews: 0,
   async print(id) {
     this.idNews = id;
-    const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
-    console.log(data);
+    const { data } = await get(id);
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit news</h2>
@@ -74,8 +72,7 @@ const editNews = {
         desc: document.getElementById("Content").value,
       };
       try {
-        await axios.put(`http://localhost:3001/posts/${this.idNews}`, news);
-        console.log("object");
+        await update(news, this.idNews);
         toastr.success("Successfully");
       } catch (error) {
         console.log(error);

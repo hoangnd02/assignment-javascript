@@ -6,10 +6,11 @@ import Table from "../../../components/Table";
 import { newsColumns } from "../../../data/news";
 import toastr from "toastr";
 import reRender from "../../../utils/reRender";
+import { getAll, remove } from "../../../api/post";
 
 const News = {
   async print() {
-    const { data } = await axios.get("http://localhost:3001/posts");
+    const { data } = await getAll();
     console.log(data);
     return /* html */ `
       <div class="mx-6">
@@ -30,7 +31,7 @@ const News = {
         const { id } = this.dataset;
         console.log(id, btn);
         try {
-          await axios.delete(`http://localhost:3001/posts/${id}`);
+          await remove(id);
           await reRender(News, "#page");
           toastr.success("Successfully");
         } catch (error) {

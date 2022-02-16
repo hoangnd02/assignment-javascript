@@ -4,10 +4,12 @@ import Button from "../../../components/Button";
 import toastr from "toastr";
 import axios from "axios";
 import previewImages from "../../../utils/previewImages";
+import { add } from "../../../api/products";
+import { getAll } from "../../../api/category";
 
 const addProduct = {
   async print() {
-    const { data } = await axios.get("http://localhost:3001/categories");
+    const { data } = await getAll();
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Add products</h2>
@@ -76,7 +78,7 @@ const addProduct = {
       };
 
       try {
-        await axios.post("http://localhost:3001/products", product);
+        await add(product);
         toastr.success("Add product successfully. Redirect after 2s");
         setTimeout(() => {
           document.location.href = "/admin/products";
