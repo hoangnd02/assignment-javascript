@@ -1,21 +1,17 @@
 const newsColumns = [
   {
-    id: 1,
     name: "id",
     type: "text",
   },
   {
-    id: 2,
     name: "title",
     type: "text",
   },
   {
-    id: 3,
     name: "img",
     type: "image",
   },
   {
-    id: 4,
     name: "desc",
     type: "description",
   },

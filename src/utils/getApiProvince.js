@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const getApiProvince = () => {
   async function fetchMovies1() {
     const response = await fetch("https://provinces.open-api.vn/api/");
@@ -15,11 +14,9 @@ const getApiProvince = () => {
     select.innerHTML = html;
   }
   async function fetchMovies2() {
-    // eslint-disable-next-line camelcase
-    const code_d = document.getElementById("Province").value;
+    const codeD = document.getElementById("Province").value;
     const response = await fetch(
-      // eslint-disable-next-line camelcase
-      `https://provinces.open-api.vn/api/p/${code_d}?depth=2`,
+      `https://provinces.open-api.vn/api/p/${codeD}?depth=2`,
     );
     const data = await response.json();
     const select = document.getElementById("City");
@@ -33,11 +30,9 @@ const getApiProvince = () => {
     select.innerHTML = html;
   }
   async function fetchMovies3() {
-    // eslint-disable-next-line camelcase
-    const code_w = document.getElementById("City").value;
+    const codeW = document.getElementById("City").value;
     const response = await fetch(
-      // eslint-disable-next-line camelcase
-      `https://provinces.open-api.vn/api/d/${code_w}?depth=2`,
+      `https://provinces.open-api.vn/api/d/${codeW}?depth=2`,
     );
     const data = await response.json();
     const select = document.getElementById("District");

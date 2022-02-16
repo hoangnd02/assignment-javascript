@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "email": "1234@gmail.com",
+      "password": "$2a$10$mvNLoL/dDXiFCidwsZZtl../ufhrcCmpGhU.A8mc8jymWaMINPebC",
+      "firstName": "123",
+      "lastName": "123",
+      "id": 1
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$CmqDN5u7sFop.c4LaOSBEuJO1YqfKdwSKZH/dRB7jSS4KANaD5uBC",
+      "firstName": "123",
+      "lastName": "123",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "title": "Smart phone",
+      "id": 1
+    },
+    {
+      "title": "Tablet",
+      "id": 2
+    },
+    {
+      "title": "Watch",
+      "id": 3
+    },
+    {
+      "title": "Accessory",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "name": "Galaxy Z Fold3 5G",
+      "category": "123",
+      "price": "56",
+      "desc": "-Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)\n",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934374/js/ip3dtsfqvfm7io3u9fmx.png",
+      "id": 2
+    },
+    {
+      "name": "Galaxy Z Flip3 5G",
+      "category": "Smart phone",
+      "price": "42000000",
+      "desc": "-Tặng gói BH mở rộng Samsung Care+ (KH không cần thêm gói BH vào giỏ hàng). Sau khi nhận sản phẩm mới, liên hệ 1800 588 855 (nhấn phím 3) để kiểm tra dịch vụ",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934542/js/irsb0dvruqnvseguhhzr.png",
+      "id": 3
+    },
+    {
+      "name": "Galaxy A52s 5G",
+      "category": "Smart phone",
+      "price": "800",
+      "desc": "Duy nhất hôm nay, nhập HSFEB giảm thêm 500K",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934628/js/enpsmv4cekbuvikfnbms.png",
+      "id": 4
+    },
+    {
+      "name": "Galaxy M52 5G",
+      "category": "Smart phone",
+      "price": "600",
+      "desc": "- Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934808/js/redeftcahkh7cqfywauo.png",
+      "id": 5
+    },
+    {
+      "name": "Galaxy Tab S7 FE LTE",
+      "category": "Tablet",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934878/js/owdifzhurwglu1vdjr5e.png",
+      "desc": "Tặng Bao da. Vui lòng không xóa sản phẩm quà tặng khỏi giỏ hàng",
+      "price": "1400",
+      "id": 6
+    },
+    {
+      "name": "Galaxy Tab A8",
+      "category": "Tablet",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934930/js/fqt2krl5fuu4spxrwv8t.jpg",
+      "desc": "Tặng Bao da.Vui lòng không xóa sản phẩm quà tặng khỏi giỏ hàng",
+      "price": "800",
+      "id": 7
+    },
+    {
+      "name": "Galaxy Tab A7 Lite LTE - Xám Vũ Trụ",
+      "category": "Tablet",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934980/js/fxb1asgy6oikftd1bdop.png",
+      "desc": "Tặng Bao da.Vui lòng không xóa sản phẩm quà tặng khỏi giỏ hàng",
+      "price": "2000",
+      "id": 8
+    },
+    {
+      "name": "Galaxy Watch4 LTE (40mm)",
+      "category": "Watch",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935109/js/espntpeywm34bii3twsd.png",
+      "desc": "Duy nhất hôm nay, nhập HSFEB nhận ưu đãi giảm 20%",
+      "price": "800",
+      "id": 9
+    },
+    {
+      "name": "Galaxy Watch4 Classic Bluetooth (42mm)",
+      "category": "Watch",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935160/js/lmkxotr0bbda55wggxfw.png",
+      "desc": "Duy nhất hôm nay, nhập HSFEB nhận ưu đãi giảm 30%",
+      "price": "200",
+      "id": 10
+    },
+    {
+      "name": "Bút S Pen Pro đen",
+      "category": "Accessory",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935368/js/nwfoijoiz3ilhor6jwed.png",
+      "desc": "Chiết khấu 20%",
+      "price": "123",
+      "id": 11
+    },
+    {
+      "name": "Galaxy Z Flip3 5G Silicone Cover with Strap",
+      "category": "Accessory",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935425/js/l9akjxsktlofrdm0nkr1.png",
+      "desc": "Chiết khấu 20%",
+      "price": "20",
+      "id": 12
+    },
+    {
+      "name": "Đế Sạc Đôi Không Dây đen",
+      "category": "Smart phone",
+      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935488/js/yctpyjptncttdnxtvs7s.png",
+      "desc": "chiết khấu 25$",
+      "price": "400",
+      "id": 13
+    }
+  ],
+  "posts": [
+    {
+      "title": "Một Cuộc Sống Tốt Đẹp Hơn, Với Công Nghệ",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936463/js/zrpwsdopicljqtmfjbxs.jpg",
+      "desc": "Samsung Và Tương Lai Tốt Đẹp Hơn Cho Tất Cả\nĐây là kỷ nguyên cho phép bạn sống cuộc đời của chính mình, mang màu sắc riêng mình. Thông qua đột phá AI và những trải nghiệm được cá nhân hoá, Samsung đang từng bước mang đến một tương lai tốt đẹp hơn cho chính bạn, và cho chính Trái Đất chúng ta đang sống.",
+      "id": 11
+    },
+    {
+      "title": "Bài thuyết trình chính về Samsung CES 2022",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936637/js/atkepustntqhd1sfwuyt.jpg",
+      "desc": "Samsung giới thiệu tầm nhìn của công ty với quan điểm rằng công nghệ cần phải tồn tại cùng với con người và cho hành tinh.\nHãng cũng sẽ trình bày về cách mà những trải nghiệm tùy chỉnh và kết nối sẽ làm phong phú thêm cuộc sống của mọi người như thế nào.",
+      "id": 12
+    },
+    {
+      "title": "Samsung Giới Thiệu Hệ Sinh Thái Hoàn Hảo Tại IFA 2019",
+      "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936689/js/qgxyyg5gdrznu99dxmqk.jpg",
+      "desc": "Diễn ra từ ngày 06 - 11/09/2019 tại Trung tâm Hội nghị Cube City, Berlin\nKhám phá cách Samsung kiến tạo nên hệ sinh thái hoàn hảo sử dụng hệ thống mạng 5G và đột phá công nghệ AI tiên tiến.",
+      "id": 13
+    }
+  ]
+}
