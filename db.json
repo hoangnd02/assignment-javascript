@@ -35,14 +35,7 @@
   ],
   "products": [
     {
-      "name": "Galaxy Z Fold3 5G",
-      "category": "123",
-      "price": "56",
-      "desc": "-Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)\n",
-      "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934374/js/ip3dtsfqvfm7io3u9fmx.png",
-      "id": 2
-    },
-    {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Z Flip3 5G",
       "category": "Smart phone",
       "price": "42000000",
@@ -51,6 +44,7 @@
       "id": 3
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy A52s 5G",
       "category": "Smart phone",
       "price": "800",
@@ -59,6 +53,7 @@
       "id": 4
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy M52 5G",
       "category": "Smart phone",
       "price": "600",
@@ -67,6 +62,7 @@
       "id": 5
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Tab S7 FE LTE",
       "category": "Tablet",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934878/js/owdifzhurwglu1vdjr5e.png",
@@ -75,6 +71,7 @@
       "id": 6
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Tab A8",
       "category": "Tablet",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934930/js/fqt2krl5fuu4spxrwv8t.jpg",
@@ -83,6 +80,7 @@
       "id": 7
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Tab A7 Lite LTE - Xám Vũ Trụ",
       "category": "Tablet",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644934980/js/fxb1asgy6oikftd1bdop.png",
@@ -91,6 +89,7 @@
       "id": 8
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Watch4 LTE (40mm)",
       "category": "Watch",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935109/js/espntpeywm34bii3twsd.png",
@@ -99,6 +98,7 @@
       "id": 9
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Watch4 Classic Bluetooth (42mm)",
       "category": "Watch",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935160/js/lmkxotr0bbda55wggxfw.png",
@@ -107,6 +107,7 @@
       "id": 10
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Bút S Pen Pro đen",
       "category": "Accessory",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935368/js/nwfoijoiz3ilhor6jwed.png",
@@ -115,6 +116,7 @@
       "id": 11
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Galaxy Z Flip3 5G Silicone Cover with Strap",
       "category": "Accessory",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935425/js/l9akjxsktlofrdm0nkr1.png",
@@ -123,6 +125,7 @@
       "id": 12
     },
     {
+      "createdAt": "2022-02-06T23:34:29.519Z",
       "name": "Đế Sạc Đôi Không Dây đen",
       "category": "Smart phone",
       "image": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644935488/js/yctpyjptncttdnxtvs7s.png",
@@ -133,22 +136,25 @@
   ],
   "posts": [
     {
+      "createdAt": "2022-02-16T03:03:47.740Z",
       "title": "Một Cuộc Sống Tốt Đẹp Hơn, Với Công Nghệ",
       "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936463/js/zrpwsdopicljqtmfjbxs.jpg",
       "desc": "Samsung Và Tương Lai Tốt Đẹp Hơn Cho Tất Cả\nĐây là kỷ nguyên cho phép bạn sống cuộc đời của chính mình, mang màu sắc riêng mình. Thông qua đột phá AI và những trải nghiệm được cá nhân hoá, Samsung đang từng bước mang đến một tương lai tốt đẹp hơn cho chính bạn, và cho chính Trái Đất chúng ta đang sống.",
-      "id": 11
+      "id": "11"
     },
     {
+      "createdAt": "2022-02-16T03:03:47.740Z",
       "title": "Bài thuyết trình chính về Samsung CES 2022",
       "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936637/js/atkepustntqhd1sfwuyt.jpg",
       "desc": "Samsung giới thiệu tầm nhìn của công ty với quan điểm rằng công nghệ cần phải tồn tại cùng với con người và cho hành tinh.\nHãng cũng sẽ trình bày về cách mà những trải nghiệm tùy chỉnh và kết nối sẽ làm phong phú thêm cuộc sống của mọi người như thế nào.",
-      "id": 12
+      "id": "12"
     },
     {
+      "createdAt": "2022-02-16T03:03:47.740Z",
       "title": "Samsung Giới Thiệu Hệ Sinh Thái Hoàn Hảo Tại IFA 2019",
       "img": "https://res.cloudinary.com/dqtnuqde5/image/upload/v1644936689/js/qgxyyg5gdrznu99dxmqk.jpg",
       "desc": "Diễn ra từ ngày 06 - 11/09/2019 tại Trung tâm Hội nghị Cube City, Berlin\nKhám phá cách Samsung kiến tạo nên hệ sinh thái hoàn hảo sử dụng hệ thống mạng 5G và đột phá công nghệ AI tiên tiến.",
-      "id": 13
+      "id": "13"
     }
   ]
 }

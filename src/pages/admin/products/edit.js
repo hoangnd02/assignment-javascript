@@ -4,13 +4,15 @@ import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import previewImages from "../../../utils/previewImages";
 import toastr from "toastr";
+import { get, update } from "../../../api/products";
+import { getAll } from "../../../api/category";
 
 const editProduct = {
   idProduct: 0,
   async print(id) {
     this.idProduct = id;
-    const { data } = await axios.get(`http://localhost:3001/products/${id}`);
-    const categories = await axios.get("http://localhost:3001/categories");
+    const { data } = await get(id);
+    const categories = await getAll();
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit product</h2>
@@ -91,10 +93,7 @@ const editProduct = {
         image: image ? image : document.querySelector("#image").src,
       };
       try {
-        await axios.put(
-          `http://localhost:3001/products/${this.idProduct}`,
-          product
-        );
+        await update(product, this.idProduct);
         toastr.success("Successfully");
       } catch (error) {
         toastr.error(error);

@@ -4,6 +4,7 @@ import Button from "../../../components/Button";
 import previewImages from "../../../utils/previewImages";
 import axios from "axios";
 import toastr from "toastr";
+import { add } from "../../../api/post";
 
 const addNews = {
   print() {
@@ -60,7 +61,7 @@ const addNews = {
       };
 
       try {
-        await axios.post(`http://localhost:3001/posts`, news);
+        await add(news);
         toastr.success("Successfully");
       } catch (error) {
         toastr.error("Error");

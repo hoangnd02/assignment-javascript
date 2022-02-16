@@ -1,5 +1,6 @@
 import axios from "axios";
 import toastr from "toastr";
+import { get, update } from "../../../api/category";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
@@ -8,7 +9,7 @@ const editCategory = {
   idCategory: 0,
   async print(id) {
     this.idCategory = id;
-    const { data } = await axios.get(`http://localhost:3001/categories/${id}`);
+    const { data } = await get(id);
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl w-full font-semibold text-gray-700 dark:text-gray-200">Edit category</h2>
@@ -34,10 +35,7 @@ const editCategory = {
         title: document.getElementById("Title").value,
       };
       try {
-        await axios.put(
-          `http://localhost:3001/categories/${this.idCategory}`,
-          category
-        );
+        await update(category, this.idCategory);
         toastr.success("Successfully");
       } catch (error) {
         console.log(error);
