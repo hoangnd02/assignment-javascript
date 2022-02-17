@@ -1,5 +1,10 @@
 import axios from "axios";
 import productFeature from "../components/product-feature";
+// import Swiper bundle with all modules installed
+import Swiper from "swiper/bundle";
+
+// import styles bundle
+import "swiper/css/bundle";
 
 const HomePage = {
   print: async () => {
@@ -9,7 +14,18 @@ const HomePage = {
     return `
     <div class="bg-[#f1f3f6] py-6">
       <div class="banner max-w-7xl mx-auto">
-        <img class="w-full" src="https://images.samsung.com/is/image/samsung/assets/vn/galaxy-registration/Hero-Reg-pc.jpg"/>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="w-full" src="https://au2-images.shop.samsung.com/medias/2000x600.jpg?context=bWFzdGVyfGltYWdlc3w2MTcyNjF8aW1hZ2UvanBlZ3xoMDYvaDlmLzEyMDg1NjY0MzgzMDA2LzIwMDB4NjAwLmpwZ3wxYjlkNTNhODMzNWU2MGJmYzQ2NTZmZDMwZWY1ZWRlMmUyYzMzOWRjNDM4NDU0MTI2MGI2ZDUyZDExY2YwMjA5"/>
+            </div>
+            <div class="swiper-slide">
+              <img class="w-full" src="https://au2-images.shop.samsung.com/medias/2000x600.jpg?context=bWFzdGVyfGltYWdlc3w3ODIxNzJ8aW1hZ2UvanBlZ3xoODgvaDNhLzEyMTI4NTYxMjMzOTUwLzIwMDB4NjAwLmpwZ3w0OWE1ZWM4ZDcyMTFiYTEwYjI5ODE4OTcwYjUyNDAxYzAxMDAzZTQyYjUyOTU3MGVlNzZkOTNjOTA1MWQ2OWEy"/>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
       </div>
       <div class="bg-white mt-6 shadow border-[1px] max-w-2xl mx-auto py-2 px-4 lg:max-w-7xl">
         <h2 class="text-2xl border-b-[1px] mx-[-16px] px-4 py-4 font-bold text-gray-900">
@@ -51,6 +67,14 @@ const HomePage = {
       </div>
     </div>
   `;
+  },
+  afterRender() {
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
   },
 };
 

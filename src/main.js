@@ -30,9 +30,9 @@ const render = async (content, page, data = null) => {
 router.on("/admin/*", () => {}, {
   before: (done) => {
     if (localStorage.getItem("user")) {
-      const userId = JSON.parse(localStorage.getItem("user")).id;
-      console.log(userId);
-      if (userId == 1) {
+      const userRole = JSON.parse(localStorage.getItem("user")).role;
+      console.log(userRole);
+      if (userRole === "admin") {
         done();
       } else {
         document.location.href = "/";

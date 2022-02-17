@@ -1,12 +1,13 @@
 import addCart from "../utils/addCart";
 import productFeature from "../components/product-feature";
 import axios from "axios";
+import { get } from "../api/products";
 
 const DetailPage = {
   async print(id) {
-    const { data } = await axios.get(`http://localhost:3001/products/${id}`);
+    const { data } = await get(id);
     const otherProducts = await axios.get(
-      `http://localhost:3001/products/?category=${data.category}&_limit=4`
+      `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/?category=${data.category}&_limit=4`
     );
     return /* html */ `
       <div class="bg-[#f1f3f6] py-6 px-12">
