@@ -4,17 +4,18 @@ import getCart from "../utils/getCart";
 import reRender from "../utils/reRender";
 import Header from "../components/client/Header";
 import toastr from "toastr";
+import { get, getAll } from "../api/products";
 
 const ProductCart = {
   async print() {
     let cartProduct = [];
     cartProduct = getCart();
     const findProduct = [];
-    const { data } = await axios.get("http://localhost:3001/products");
+    const { data } = await getAll();
     console.log(cartProduct);
     if (cartProduct && cartProduct.length > 0) {
       await cartProduct.forEach((product) => {
-        const prod = data.find((prodItem) => prodItem.id === +product.id);
+        const prod = data.find((prodItem) => prodItem.id == product.id);
         if (prod) {
           prod.quantity = product.quantity;
           findProduct.push(prod);
@@ -78,7 +79,7 @@ const ProductCart = {
     delBtnElement.forEach((element) => {
       element.addEventListener("click", async function () {
         const { id } = this.dataset;
-        await axios.get(`http://localhost:3001/products/${id}`);
+        await get(id);
         const findIndexProduct = productCart.findIndex(
           (product) => product.id == id
         );

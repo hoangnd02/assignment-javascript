@@ -1,6 +1,7 @@
 import axios from "axios";
+import { getAll } from "../api/products";
 
-const { data } = await axios.get("http://localhost:3001/products");
+const { data } = await getAll();
 const productsElement = await data
   .map(
     (product) => /* html */ `

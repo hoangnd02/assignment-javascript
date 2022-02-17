@@ -2,6 +2,7 @@
   "users": [
     {
       "email": "1234@gmail.com",
+      "role": "admin",
       "password": "$2a$10$mvNLoL/dDXiFCidwsZZtl../ufhrcCmpGhU.A8mc8jymWaMINPebC",
       "firstName": "123",
       "lastName": "123",
@@ -9,6 +10,7 @@
     },
     {
       "email": "123@gmail.com",
+      "role": "client",
       "password": "$2a$10$CmqDN5u7sFop.c4LaOSBEuJO1YqfKdwSKZH/dRB7jSS4KANaD5uBC",
       "firstName": "123",
       "lastName": "123",
