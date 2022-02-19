@@ -1,45 +1,38 @@
-import axios from "axios";
-import addUser from "./add";
-import editUser from "./edit";
-import Button from "../../../components/Button";
-import Table from "../../../components/Table";
-import { newsColumns } from "../../../data/news";
 import toastr from "toastr";
+import Table from "../../../components/Table";
+import userColumns from "../../../data/users";
 import reRender from "../../../utils/reRender";
+import { getAll, remove } from "../../../api/user";
+import EditUser from "./edit";
 
-const User = {
+const Users = {
   async print() {
-    const { data } = await axios.get("http://localhost:3001/posts");
-    console.log(data);
+    const { data } = await getAll();
     return /* html */ `
       <div class="mx-6">
-        <h2 class="my-6 text-2xl w-full font-semibold text-gray-700 dark:text-gray-200">List user</h2>
-        <div class="w-[100px]">
-          <a href="#/admin/user/add" class="w-[100px]">
-            ${Button.print("Add new")}
-          </a>  
-        </div>
+        <h2 class="my-6 text-2xl w-full font-semibold text-gray-700 dark:text-gray-200">List users</h2>
       </div>
-      ${Table.print("user", userColumns, data)}
+      ${Table.print("users", userColumns, data)}
     `;
   },
   afterRender() {
-    const del_btn = document.querySelectorAll("#del_btn");
-    del_btn.forEach((btn) => {
+    const delBtn = document.querySelectorAll("#del_btn");
+    delBtn.forEach((btn) => {
       btn.addEventListener("click", async function () {
-        const { id } = this.dataset;
-        console.log(id, btn);
-        try {
-          await axios.delete(`http://localhost:3001/posts/${id}`);
-          await reRender(user, "#page");
-          toastr.success("Successfully");
-        } catch (error) {
-          console.log(error);
-          toastr.error("Error");
+        const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
+        if (confirm) {
+          const { id } = this.dataset;
+          try {
+            await remove(id);
+            await reRender(Users, "#page");
+            toastr.success("Successfully");
+          } catch (error) {
+            toastr.error("Error");
+          }
         }
       });
     });
   },
 };
 
-export { User, editUser, addUser };
+export { Users, EditUser };

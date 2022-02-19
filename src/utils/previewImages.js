@@ -9,6 +9,7 @@ const previewImages = (fileImg) => {
             <img src="${url}" id="image" class="image w-[190px] mx-1 h-auto"/>
           </div>
         `;
+      document.getElementById("Photo product").value = url;
     }
   }
   document.querySelector(".list-images").innerHTML = listImageElement;

@@ -1,5 +1,6 @@
-import axios from "axios";
 import toastr from "toastr";
+import $ from "jquery";
+import validate from "jquery-validation";
 import { get, update } from "../../../api/category";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
@@ -26,20 +27,22 @@ const editCategory = {
       </div>
     `;
   },
-  async afterRender() {
-    const formAdd = document.getElementById("form");
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const category = {
-        title: document.getElementById("Title").value,
-      };
-      try {
-        await update(category, this.idCategory);
-        toastr.success("Successfully");
-      } catch (error) {
-        console.log(error);
-      }
+  async afterRender(id) {
+    $("#form").validate({
+      submitHandler() {
+        async function submit() {
+          const category = {
+            title: document.getElementById("Title").value,
+          };
+          try {
+            await update(category, id);
+            return toastr.success("Successfully");
+          } catch (error) {
+            return error;
+          }
+        }
+        submit();
+      },
     });
   },
 };

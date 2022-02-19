@@ -1,7 +1,9 @@
+import toastr from "toastr";
+import $ from "jquery";
+import validate from "jquery-validation";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
-import toastr from "toastr";
 import { add } from "../../../api/category";
 
 const addCategory = {
@@ -23,19 +25,21 @@ const addCategory = {
     `;
   },
   async afterRender() {
-    const formAdd = document.getElementById("form");
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const category = {
-        title: document.getElementById("Title").value,
-      };
-      try {
-        await add(category);
-        toastr.success("Successfully");
-      } catch (error) {
-        console.log(error);
-      }
+    $("#form").validate({
+      submitHandler() {
+        async function submit() {
+          const category = {
+            title: document.getElementById("Title").value,
+          };
+          try {
+            await add(category);
+            toastr.success("Successfully");
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        submit();
+      },
     });
   },
 };

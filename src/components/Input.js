@@ -1,39 +1,36 @@
 const Input = {
   print(type, title, placeholder = "", value = "") {
     switch (type) {
-      case "text": {
-        return /* html */ `
+    case "text": {
+      return /* html */ `
         <div class="grid grid-cols-3 gap-6">
           <div class="col-span-3 sm:col-span-3">
             <label for="title" class="block text-sm font-medium text-gray-700">${title}</label>
-            <input type="text" value="${value}" placeholder="${placeholder}" name="${title}" id="${title}" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">
+            <input type="text" value="${value}" placeholder="${placeholder}" name="${title}" id="${title}" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" required>
           </div>
         </div>
       `;
-      }
+    }
 
-      case "password": {
-        return /* html */ `
+    case "password": {
+      return /* html */ `
         <div class="grid grid-cols-3 gap-6">
           <div class="col-span-3 sm:col-span-3">
             <label for="title" class="block text-sm font-medium text-gray-700">${title}</label>
-            <input type="password" value="${value}" placeholder="${placeholder}" name="${title}" id="${title}" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">
+            <input type="password" value="${value}" placeholder="${placeholder}" name="${title}" id="${title}" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" required>
           </div>
         </div>
       `;
-      }
+    }
 
-      case "file": {
-        return /* html */ `
+    case "file": {
+      return /* html */ `
         <div>
           <label class="block text-sm font-medium text-gray-700">
             ${title}
           </label>
           <div class="list-images flex flex-wrap my-2">
-            ${
-              value &&
-              `<img src="${value}" id="image" class="w-[190px] h-auto">`
-            }
+            ${value && `<img src="${value}" id="image" class="w-[190px] h-auto">`}
           </div>
           <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
             <div class="space-y-1 text-center">
@@ -54,23 +51,23 @@ const Input = {
           </div>
         </div>
       `;
-      }
+    }
 
-      case "textarea": {
-        return /* html */ `
+    case "textarea": {
+      return /* html */ `
         <div>
           <label for="${title}" class="block text-sm font-medium text-gray-700">
             ${title}
           </label>
           <div class="mt-1">
-            <textarea id="${title}" name="${title}" rows="3" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="${placeholder}">${value}</textarea>
+            <textarea id="${title}" name="${title}" rows="3" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="${placeholder}" required>${value}</textarea>
           </div>
         </div>
       `;
-      }
+    }
 
-      case "select": {
-        return /* html */ `
+    case "select": {
+      return /* html */ `
         <div class="col-span-6 sm:col-span-3">
           <label for="${title}" class="block text-sm font-medium text-gray-700">${title}</label>
           <select id="${title}" name="${title}" autocomplete="${title}-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -78,18 +75,18 @@ const Input = {
           </select>
         </div>
       `;
-      }
+    }
 
-      default: {
-        return /* html */ `
+    default: {
+      return /* html */ `
         <div class="grid grid-cols-3 gap-6">
           <div class="col-span-3 sm:col-span-3">
             <label for="title" class="block text-sm font-medium text-gray-700">${title}</label>
-            <input type="text" value="${value}" name="title" id="title" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">
+            <input type="text" value="${value}" name="title" id="title" autocomplete="given-name" class="py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" required>
           </div>
         </div>
       `;
-      }
+    }
     }
   },
 };
