@@ -6,7 +6,6 @@ const Table = {
     if (data.length > 0) {
       keys = Object.keys(data[0]);
     }
-    console.log(data, column);
     return /* html */ `
       <div class="py-[20px] px-8 flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

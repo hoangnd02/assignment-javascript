@@ -1,9 +1,10 @@
 import axios from "axios";
+import { getAll } from "../api/post";
 import { newsData } from "../data/news";
 
 const NewsPage = {
   async print() {
-    const { data } = await axios.get("http://localhost:3001/posts");
+    const { data } = await getAll();
 
     return /* html */ `
       <section class="bg-coolGray-100 text-coolGray-800">

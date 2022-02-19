@@ -1,5 +1,6 @@
 import axios from "axios";
 import toastr from "toastr";
+import { get } from "../api/products";
 import Header from "../components/client/Header";
 import reRender from "./reRender";
 
@@ -10,7 +11,7 @@ const addCart = () => {
   addBtn.addEventListener("click", async function () {
     const { id } = this.dataset;
     console.log(quantityElement.value);
-    const { data } = await axios.get(`http://localhost:3001/products/${id}`);
+    const { data } = await get(id);
     const newProduct = {
       ...data,
       quantity: +quantityElement.value,

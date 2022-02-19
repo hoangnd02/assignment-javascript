@@ -1,5 +1,7 @@
 import axios from "axios";
 import toastr from "toastr";
+import $ from "jquery";
+import validate from "jquery-validation";
 import Button from "../components/Button";
 import Form from "../components/Form";
 import Input from "../components/Input";
@@ -39,26 +41,36 @@ const Signup = {
     `;
   },
   afterRender() {
-    const formAdd = document.getElementById("form");
-    console.log(formAdd);
+    $("#form").validate({
+      rules: {
+        Email: {
+          required: true,
+          email: true,
+        },
+        Password: {
+          required: true,
+          minlength: 4,
+        },
+      },
+      messages: {},
+      submitHandler() {
+        async function submit() {
+          const newUser = {
+            firstName: document.getElementById("First name").value,
+            lastName: document.getElementById("Last name").value,
+            email: document.getElementById("Email").value,
+            password: document.getElementById("Password").value,
+          };
 
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const newUser = {
-        firstName: document.getElementById("First name").value,
-        lastName: document.getElementById("Last name").value,
-        email: document.getElementById("Email").value,
-        password: document.getElementById("Password").value,
-      };
-
-      try {
-        await axios.post("http://localhost:3001/signup", newUser);
-        document.location.href = "/";
-      } catch (error) {
-        console.log(error);
-        return error;
-      }
+          try {
+            await axios.post("http://localhost:3001/signup", newUser);
+            document.location.href = "/";
+          } catch (error) {
+            toastr.error(error);
+          }
+        }
+        submit();
+      },
     });
   },
 };

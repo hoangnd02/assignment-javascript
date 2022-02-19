@@ -1,5 +1,7 @@
-import axios from "axios";
 import toastr from "toastr";
+import $ from "jquery";
+import axios from "axios";
+import validate from "jquery-validation";
 import Button from "../components/Button";
 import Form from "../components/Form";
 import Input from "../components/Input";
@@ -52,32 +54,48 @@ const Signin = {
     `;
   },
   afterRender() {
-    const formAdd = document.getElementById("form");
-    console.log(formAdd);
+    $("#form").validate({
+      rules: {
+        Email: {
+          required: true,
+          email: true,
+        },
+        Password: {
+          required: true,
+          minlength: 4,
+        },
+      },
+      messages: {},
+      submitHandler() {
+        async function login() {
+          const user = {
+            email: document.getElementById("Email").value,
+            password: document.getElementById("Password").value,
+          };
 
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const user = {
-        email: document.getElementById("Email").value,
-        password: document.getElementById("Password").value,
-      };
-
-      try {
-        const { data } = await axios.post("http://localhost:3001/signin", user);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        toastr.success("Bạn đã đăng nhập thành công, chờ 3s để chuyển trang");
-        setTimeout(() => {
-          if (data.user.id === 1) {
-            document.location.href = "/#/admin/dashboard";
-          } else {
-            document.location.href = "/#/";
+          try {
+            const { data } = await axios.post(
+              "http://localhost:3001/signin",
+              user,
+            );
+            localStorage.setItem("user", JSON.stringify(data.user));
+            toastr.success(
+              "Bạn đã đăng nhập thành công, chờ 3s để chuyển trang",
+            );
+            setTimeout(() => {
+              if (data.user.id === 1) {
+                document.location.href = "/#/admin/dashboard";
+              } else {
+                document.location.href = "/#/";
+              }
+            }, 3000);
+            document.location.href = "/";
+          } catch (error) {
+            toastr.error(error);
           }
-        }, 3000);
-        document.location.href = "/";
-      } catch (error) {
-        console.log(error);
-      }
+        }
+        login();
+      },
     });
   },
 };

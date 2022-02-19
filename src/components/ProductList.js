@@ -1,8 +1,5 @@
-import { getAll } from "../api/products";
-
-const productFeature = {
-  print: async () => {
-    const { data } = await getAll();
+const productList = {
+  print(data) {
     return data
       .map(
         (product) => /* html */ `
@@ -29,4 +26,4 @@ const productFeature = {
   },
 };
 
-export default productFeature;
+export default productList;

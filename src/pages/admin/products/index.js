@@ -27,15 +27,18 @@ const Products = {
     del_btn.forEach((btn) => {
       console.log(btn);
       btn.addEventListener("click", async function () {
-        const { id } = this.dataset;
-        console.log(id, btn);
-        try {
-          await remove(id);
-          await reRender(Products, "#page");
-          toastr.success("Successfully");
-        } catch (error) {
-          console.log(error);
-          toastr.error("Error");
+        const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
+        if (confirm) {
+          const { id } = this.dataset;
+          console.log(id, btn);
+          try {
+            await remove(id);
+            await reRender(Products, "#page");
+            toastr.success("Successfully");
+          } catch (error) {
+            console.log(error);
+            toastr.error("Error");
+          }
         }
       });
     });

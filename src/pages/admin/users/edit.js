@@ -1,27 +1,32 @@
-import axios from "axios";
 import toastr from "toastr";
+import $ from "jquery";
+import validate from "jquery-validation";
+import { get, update } from "../../../api/user";
 import Button from "../../../components/Button";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
-import fetchApi from "../../../utils/fetchApi";
-import previewImages from "../../../utils/previewImages";
 
-const editUser = {
-  iduser: 0,
+const EditUser = {
+  idUser: 0,
   async print(id) {
-    this.iduser = id;
-    const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
-    console.log(data);
+    this.idUser = id;
+    const { data } = await get(id);
     return /* html */ `
       <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit user</h2>
-
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="shadow sm:rounded-md sm:overflow-hidden">
             ${Form.print(/* html */ `
-              ${Input.print("text", "Title", "Title new", data.title)}
-              ${Input.print("file", "Cover photo", "", data.img)}
-              ${Input.print("textarea", "Content", "Content new", data.desc)}
+              ${Input.print("text", "First name", "First name", data.firstName)}
+              ${Input.print("text", "Last name", "First name", data.lastName)}
+              ${Input.print("text", "Email", "Email", data.email)}
+              <div class="col-span-6 sm:col-span-3">
+                <label for="category" class="block text-sm font-medium text-gray-700">category</label>
+                <select id="Role" name="category" autocomplete="category-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>admin</option>
+                  <option>client</option>
+                </select>
+              </div>
               <div class="w-[100px] py-3 text-right">
                 ${Button.print("Save")}
               </div>
@@ -31,56 +36,27 @@ const editUser = {
       </div>
     `;
   },
-  afterRender() {
-    const inputElement = document.querySelector("#file-upload");
-    let listImgs;
-
-    if (inputElement) {
-      inputElement.addEventListener("change", handleFiles);
-      function handleFiles() {
-        previewImages(this.files);
-        listImgs = this.files;
-      }
-    }
-
-    const formAdd = document.getElementById("form");
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      let image;
-
-      if (listImgs) {
-        const formData = new FormData();
-        formData.append("file", listImgs[0]);
-        formData.append("upload_preset", "axplfcjl");
-        try {
-          const { data } = await axios({
-            url: "https://api.cloudinary.com/v1_1/dqtnuqde5/image/upload",
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-endcoded",
-            },
-            data: formData,
-          });
-          image = data.secure_url;
-        } catch (error) {
-          console.log(error);
+  afterRender(id) {
+    $("#form").validate({
+      submitHandler() {
+        async function submit() {
+          const user = {
+            firstName: document.getElementById("First name").value,
+            lastName: document.getElementById("Last name").value,
+            role: document.getElementById("Role").value,
+            email: document.getElementById("Email").value,
+          };
+          try {
+            await update(user, id);
+            return toastr.success("Successfully");
+          } catch (error) {
+            return error;
+          }
         }
-      }
-
-      const user = {
-        title: document.getElementById("Title").value,
-        img: image ? image : document.querySelector("#image").src,
-        desc: document.getElementById("Content").value,
-      };
-      try {
-        await axios.put(`http://localhost:3001/posts/${this.iduser}`, user);
-        console.log("object");
-        toastr.success("Successfully");
-      } catch (error) {
-        console.log(error);
-      }
+        submit();
+      },
     });
   },
 };
 
-export default editUser;
+export default EditUser;

@@ -19,8 +19,12 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
+    "jquery": "^3.6.0",
+    "jquery-validation": "^1.19.3",
+    "jso": "^4.1.1",
     "json-server": "^0.17.0",
     "navigo": "^8.11.1",
+    "swiper": "^8.0.6",
     "toastr": "^2.1.4"
   }
 }
