@@ -1,11 +1,10 @@
-import axios from "axios";
 import toastr from "toastr";
-import changeCountProduct from "../utils/changeCountProduct";
 import getCart from "../utils/getCart";
 import reRender from "../utils/reRender";
 import Header from "./client/Header";
+import changeCountProduct from "../utils/changeCountProduct";
+
 import { get, getAll } from "../api/products";
-import totalProduct from "../utils/totalProduct";
 
 const ProductCart = {
   async print() {
@@ -13,7 +12,6 @@ const ProductCart = {
     cartProduct = getCart();
     const findProduct = [];
     const { data } = await getAll();
-    console.log(cartProduct);
     if (cartProduct && cartProduct.length > 0) {
       await cartProduct.forEach((product) => {
         const prod = data.find((prodItem) => prodItem.id == product.id);
