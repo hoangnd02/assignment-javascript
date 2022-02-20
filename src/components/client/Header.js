@@ -116,7 +116,7 @@ const Header = {
       nav.addEventListener("click", async function () {
         const { id } = this.dataset;
         const { data } = await axios.get(
-          `http://localhost:3001/products?category=${id}`,
+          `https://o1d4ks.sse.codesandbox.io/products?category=${id}`,
         );
         const productFilter = document.querySelector(".list-products");
         productFilter.innerHTML = productList.print(data);

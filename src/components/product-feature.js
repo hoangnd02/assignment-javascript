@@ -1,11 +1,7 @@
-import { getAll } from "../api/products";
-
 const productFeature = {
-  print: async () => {
-    const { data } = await getAll();
-    return data
-      .map(
-        (product) => /* html */ `
+  print: (data) => data
+    .map(
+      (product) => /* html */ `
       <div class="group relative z-10">
         <div class="w-full min-h-80 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
           <img src="${product.image}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
@@ -24,9 +20,8 @@ const productFeature = {
         </div>
       </div>
     `,
-      )
-      .join("");
-  },
+    )
+    .join(""),
 };
 
 export default productFeature;

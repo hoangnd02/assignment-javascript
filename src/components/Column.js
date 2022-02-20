@@ -3,9 +3,9 @@ const Column = {
     switch (type) {
     case "text": {
       return /* html */`
-        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        <td class=" px-6 py-4 whitespace-nowrap text-sm text-gray-500">
           <div class="flex items-center">
-            <div class="text-sm font-medium text-gray-900">
+            <div class="max-w-[150px] truncate text-sm font-medium text-gray-900">
               ${value}
             </div>
           </div>
@@ -24,7 +24,7 @@ const Column = {
     case "description": {
       return /* html */`
         <td class="px-6 py-4 whitespace-nowrap">
-          <span class="min-w-[100px] max-w-[400px] truncate px-2 inline-flex text-xs leading-5 font-semibold rounded-full ">
+          <span class="min-w-[100px] max-w-[240px] truncate px-2 inline-flex text-xs leading-5 font-semibold rounded-full ">
             ${value}
           </span>
         </td>

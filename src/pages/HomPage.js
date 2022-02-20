@@ -5,13 +5,15 @@ import productFeature from "../components/product-feature";
 
 // import styles bundle
 import "swiper/css/bundle";
+import instance from "../api/config";
 
 const HomePage = {
   print: async () => {
+    const { data } = await instance.get("/products?_page=1&_limit=8");
     const newProduct = await axios.get(
-      `http://localhost:3001/products?_sort=id&_order=asc&_limit=4`,
+      `https://o1d4ks.sse.codesandbox.io/products?_sort=id&_order=asc&_limit=4`,
     );
-    return `
+    return /* html */`
     <div class="bg-[#f1f3f6] py-6">
       <div class="banner max-w-7xl mx-auto">
         <div class="swiper mySwiper">
@@ -61,19 +63,98 @@ const HomePage = {
         <h2 class="text-2xl border-b-[1px] mx-[-16px] px-4 py-4 font-bold text-gray-900">
           All product
         </h2>
-        <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          ${await productFeature.print()}
+        <div id="all-products" class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          ${await productFeature.print(data)}
+        </div>
+        <div
+          class="grid mt-2 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 sm:grid-cols-9 dark:text-gray-400"
+        >
+          <span class="flex items-center col-span-3">
+            Showing 1-2 of 2
+          </span>
+          <span class="col-span-2"></span>
+          <!-- Pagination -->
+          <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+            <nav aria-label="Table navigation">
+              <ul class="inline-flex items-center">
+                <li>
+                  <button
+                    class="px-3 py-1 w-[50px] rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                    aria-label="Previous"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="w-4 h-4 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    id="page-count"
+                    data-id="1"
+                    class="px-3 py-1 w-[50px] hover:bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-purple"
+                  >
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button
+                    id="page-count"
+                    data-id="2"
+                    class="px-3 py-1 w-[50px] hover:bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-purple"
+                  >
+                    2
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="px-3 py-1 w-[50px] rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                    aria-label="Next"
+                  >
+                    <svg
+                      class="w-4 h-4 fill-current"
+                      aria-hidden="true"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </span>
         </div>
       </div>
     </div>
   `;
   },
-  afterRender() {
+  async afterRender() {
     const swiper = new Swiper(".mySwiper", {
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+    });
+
+    // Get page product
+    const pageElements = document.querySelectorAll("#page-count");
+    pageElements.forEach((element) => {
+      element.addEventListener("click", async function () {
+        const { id } = this.dataset;
+        const { data } = await instance.get(`/products?_page=${id}&_limit=8`);
+        document.querySelector("#all-products").innerHTML = productFeature.print(data);
+      });
     });
   },
 };
