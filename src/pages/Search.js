@@ -16,7 +16,7 @@ const Search = {
 						<h2 class="text-2xl border-b-[1px] mx-[-16px] px-4 py-4 font-bold text-gray-900">
 							Filter
 						</h2>
-						<div class="mt-4 space-y-4">
+						<div class="my-10 space-y-4">
 						${categories.data
     .map(
       (category) => `
