@@ -44,7 +44,7 @@ const addProduct = {
     let listImgs;
 
     if (inputElement) {
-      inputElement.addEventListener("change", () => {
+      inputElement.addEventListener("change", function () {
         previewImages(this.files);
         listImgs = this.files;
       });

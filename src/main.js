@@ -12,10 +12,11 @@ import { News, editNews, addNews } from "./pages/admin/news";
 import { Products, addProduct, editProduct } from "./pages/admin/products";
 import { ClientTemplate, AdminTemplate, DefaultTemplate } from "./templates";
 import { Category, addCategory, editCategory } from "./pages/admin/categories";
-// import addUser from "./pages/admin/users/add";
-// import editUser from "./pages/admin/users/edit";
 import Search from "./pages/Search";
 import { Users, EditUser } from "./pages/admin/users";
+import { Checkout } from "./pages/admin/checkout";
+import editCheckout from "./pages/admin/checkout/edit";
+import CheckoutPage from "./pages/Checkout";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -51,7 +52,6 @@ router.on("/admin/*", () => {}, {
   before: (done) => {
     if (localStorage.getItem("user")) {
       const userRole = JSON.parse(localStorage.getItem("user")).role;
-      console.log(userRole);
       if (userRole === "admin") {
         done();
       } else {
@@ -66,6 +66,7 @@ router.on({
   "/cart": () => render(Cart, ClientTemplate),
   "/about": () => render(About, ClientTemplate),
   "/search": () => render(Search, ClientTemplate),
+  "/checkout/:id": ({ data }) => render(CheckoutPage, ClientTemplate, data),
   "/news": () => render(NewsPage, ClientTemplate),
   "/signin": () => render(Signin, DefaultTemplate),
   "/signup": () => render(Signup, DefaultTemplate),
@@ -83,6 +84,8 @@ router.on({
   "/admin/news": () => render(News, AdminTemplate),
   "/admin/news/add": () => render(addNews, AdminTemplate),
   "/admin/news/edit/:id": ({ data }) => render(editNews, AdminTemplate, data),
+  "/admin/checkouts": () => render(Checkout, AdminTemplate),
+  "/admin/checkouts/edit/:id": ({ data }) => render(editCheckout, AdminTemplate, data),
 });
 
 router.notFound(() => render(NotFound, ClientTemplate));

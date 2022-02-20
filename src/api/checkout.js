@@ -1,22 +1,22 @@
 import instance from "./config";
 
 export const getAll = () => {
-  const url = `/users`;
+  const url = `/checkouts`;
   return instance.get(url);
 };
 export const get = (id) => {
-  const url = `/users/${id}`;
+  const url = `/checkouts/${id}`;
   return instance.get(url);
 };
 export const add = (post) => {
-  const url = `/users`;
+  const url = `/checkouts`;
   return instance.post(url, post);
 };
 export const remove = (id) => {
-  const url = `/users/${id}`;
+  const url = `/checkouts/${id}`;
   return instance.delete(url);
 };
 export const update = (post, id) => {
-  const url = `/users/${id}`;
-  return instance.patch(url, post);
+  const url = `/checkouts/${id}`;
+  return instance.put(url, post);
 };
