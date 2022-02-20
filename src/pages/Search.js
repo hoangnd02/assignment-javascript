@@ -6,7 +6,7 @@ const Search = {
   print: async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const { data } = await axios.get(
-      `http://localhost:3001/products?q=${urlParams.get("q")}`
+      `https://o1d4ks.sse.codesandbox.io/products?q=${urlParams.get("q")}`,
     );
     const categories = await getAll();
     return `
@@ -18,14 +18,14 @@ const Search = {
 						</h2>
 						<div class="mt-4 space-y-4">
 						${categories.data
-              .map(
-                (category) => `
+    .map(
+      (category) => `
 								<div class="flex items-center">
 									<input id="category" value="${category.title}" name="category" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
 									<label for="category" class="ml-3 block text-sm font-medium text-gray-700">${category.title}</label>
-								</div>`
-              )
-              .join("")}
+								</div>`,
+    )
+    .join("")}
 						</div>
 					</fieldset>
 				</div>
@@ -43,12 +43,12 @@ const Search = {
   afterRender() {
     const filterElements = document.querySelectorAll("#category");
     filterElements.forEach((element) => {
-      element.addEventListener("change", async function (e) {
+      element.addEventListener("change", async (e) => {
         const urlParams = new URLSearchParams(window.location.search);
         const { data } = await axios.get(
-          `http://localhost:3001/products?category=${
+          `https://o1d4ks.sse.codesandbox.io/products?category=${
             e.target.value
-          }&q=${urlParams.get("q")}`
+          }&q=${urlParams.get("q")}`,
         );
         const productFilter = document.querySelector("#product_filter");
         productFilter.innerHTML = productList.print(data);

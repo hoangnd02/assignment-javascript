@@ -9,7 +9,7 @@ import "swiper/css/bundle";
 const HomePage = {
   print: async () => {
     const newProduct = await axios.get(
-      `http://localhost:3001/products?_sort=id&_order=asc&_limit=4`,
+      `https://o1d4ks.sse.codesandbox.io/products?_sort=id&_order=asc&_limit=4`,
     );
     return `
     <div class="bg-[#f1f3f6] py-6">

@@ -63,7 +63,7 @@ const Signup = {
           };
 
           try {
-            await axios.post("http://localhost:3001/signup", newUser);
+            await axios.post("https://o1d4ks.sse.codesandbox.io/signup", newUser);
             document.location.href = "/";
           } catch (error) {
             toastr.error(error);
