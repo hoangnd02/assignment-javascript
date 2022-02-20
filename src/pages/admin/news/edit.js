@@ -1,6 +1,7 @@
 import axios from "axios";
 import toastr from "toastr";
 import $ from "jquery";
+// eslint-disable-next-line no-unused-vars
 import validate from "jquery-validation";
 import { get, update } from "../../../api/post";
 import Button from "../../../components/Button";
@@ -43,12 +44,6 @@ const editNews = {
     }
 
     $("#form").validate({
-      rules: {
-        "Price product": {
-          required: true,
-          number: true,
-        },
-      },
       submitHandler() {
         async function submit() {
           let image;

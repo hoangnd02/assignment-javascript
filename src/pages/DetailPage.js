@@ -1,26 +1,23 @@
 import addCart from "../utils/addCart";
-import productFeature from "../components/product-feature";
-import axios from "axios";
 import { get } from "../api/products";
+import instance from "../api/config";
 
 const DetailPage = {
   async print(id) {
     const { data } = await get(id);
-    const otherProducts = await axios.get(
-      `https://61ffcacf5e1c4100174f6f70.mockapi.io/products/?category=${data.category}&_limit=4`
-    );
+    const otherProducts = await instance.get(`products/?category=${data.category}&_limit=4`);
     return /* html */ `
       <div class="bg-[#f1f3f6] py-6 px-12">
         <section class="mt-2 shadow border-[1px] text-gray-700 body-font overflow-hidden bg-white">
           <div class="container px-5 py-16 mx-auto">
             <div class="lg:w-4/5 mx-auto flex justify-around flex-wrap">
               <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded border border-gray-200" src="${
-                data.image
-              }">
+  data.image
+}">
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${
-                  data.name
-                }</h1>
+  data.name
+}</h1>
                 <div class="flex mb-4">
                 </div>
                 <p class="leading-relaxed">- Tặng Voucher giảm 50% mua Watch4 (R870, R875, R880, R885)</p>
@@ -41,12 +38,12 @@ const DetailPage = {
                 <div class="flex mt-6 pb-5 mb-5">
                   <span class="mr-3 w-[100px] flex items-center">Price</span>
                   <span class="title-font font-medium text-2xl text-gray-900 pr-10 pl-3">$${
-                    data.price
-                  }</span>
+  data.price
+}</span>
                 </div>
                 <button data-id="${
-                  data.id
-                }" id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
+  data.id
+}" id="add-btn" class="flex mt-10 text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add cart</button>
               </div>
             </div>
           </div>
@@ -57,8 +54,8 @@ const DetailPage = {
           </h2>
           <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             ${otherProducts.data
-              .map(
-                (product) => /* html */ `
+    .map(
+      (product) => /* html */ `
               <div class="group relative z-10">
                 <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                   <img src="${product.image}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
@@ -76,9 +73,9 @@ const DetailPage = {
                   <p class="text-sm font-medium text-gray-900">$${product.price}</p>
                 </div>
               </div>
-            `
-              )
-              .join("")}
+            `,
+    )
+    .join("")}
           </div>
         </div>
         </div>
@@ -93,8 +90,7 @@ const DetailPage = {
     });
     const upQuantity = document.getElementById("up-quantity");
     upQuantity.addEventListener("click", () => {
-      document.getElementById("quantity").value =
-        +document.getElementById("quantity").value + 1;
+      document.getElementById("quantity").value = +document.getElementById("quantity").value + 1;
     });
   },
 };

@@ -1,8 +1,12 @@
+import $ from "jquery";
+// eslint-disable-next-line no-unused-vars
+import validate from "jquery-validation";
+import toastr from "toastr";
+import { add } from "../api/checkout";
 import Button from "../components/Button";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import ProductCart from "../components/ProductCart";
-import changeCountProduct from "../utils/changeCountProduct";
 import getApiProvince from "../utils/getApiProvince";
 import getCart from "../utils/getCart";
 import totalProduct from "../utils/totalProduct";
@@ -35,7 +39,7 @@ const Cart = {
               ${Input.print("select", "Province", "Province")}
               ${Input.print("select", "City", "City")}
               ${Input.print("select", "District", "District")}
-              ${Input.print("textarea", "Detail address", "Address")}
+              ${Input.print("textarea", "Detail address", "Detail address")}
               <div class="mt-8">
                 <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
@@ -53,6 +57,33 @@ const Cart = {
     getApiProvince();
     ProductCart.afterRender();
     totalProduct();
+
+    // Submit form
+    $("#form").validate({
+      submitHandler() {
+        // eslint-disable-next-line consistent-return
+        async function submit() {
+          const district = document.getElementById("District");
+          const city = document.getElementById("City");
+          const province = document.getElementById("Province");
+          const checkout = {
+            name: document.getElementById("Full name").value,
+            phone: document.getElementById("Number phone").value,
+            email: JSON.parse(localStorage.getItem("user")).email,
+            address: `${district.options[district.selectedIndex].text}, ${city.options[city.selectedIndex].text}, ${province.options[province.selectedIndex].text}`,
+            detailAddress: document.getElementById("Detail address").value,
+            products: JSON.stringify(getCart()),
+          };
+          try {
+            const { data } = await add(checkout);
+            document.location.href = `#/checkout/${data.id}`;
+          } catch (error) {
+            return error;
+          }
+        }
+        submit();
+      },
+    });
   },
 };
 

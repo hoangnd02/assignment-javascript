@@ -68,7 +68,6 @@ const editProduct = {
             const formData = new FormData();
             formData.append("file", listImgs[0]);
             formData.append("upload_preset", "axplfcjl");
-            console.log("object");
             try {
               const { data } = await axios({
                 url: "https://api.cloudinary.com/v1_1/dqtnuqde5/image/upload",

@@ -5,6 +5,7 @@ import Header from "./client/Header";
 import changeCountProduct from "../utils/changeCountProduct";
 
 import { get, getAll } from "../api/products";
+import totalProduct from "../utils/totalProduct";
 
 const ProductCart = {
   async print() {
