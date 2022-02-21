@@ -66,6 +66,9 @@ const Cart = {
           const district = document.getElementById("District");
           const city = document.getElementById("City");
           const province = document.getElementById("Province");
+          if (JSON.stringify(localStorage.getItem("user")).email === undefined) {
+            return toastr.error("Bạn phải đăng nhập");
+          }
           const checkout = {
             name: document.getElementById("Full name").value,
             phone: document.getElementById("Number phone").value,
@@ -76,7 +79,10 @@ const Cart = {
           };
           try {
             const { data } = await add(checkout);
-            document.location.href = `#/checkout/${data.id}`;
+            toastr.success("Add product successfully. Redirect after 2s");
+            return setTimeout(() => {
+              document.location.href = `#/checkout/${data.id}`;
+            }, 3000);
           } catch (error) {
             return error;
           }

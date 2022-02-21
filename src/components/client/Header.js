@@ -24,7 +24,6 @@ const Header = {
               <div class="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div class="h-full flex space-x-8">
                   <a href="/admin" class="flex items-center text-sm font-medium text-white hover:text-white">Admin</a>
-                  <a href="/checkout" class="flex items-center text-sm font-medium text-white hover:text-white">Check out</a>
                   <a href="/news" class="flex items-center text-sm font-medium text-white hover:text-white">News</a>
                 </div>
               </div>
@@ -41,20 +40,15 @@ const Header = {
                   </button>
                 </form>
 
-                ${
-  localStorage.getItem("user")
-    ? `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                          <div id="account-email" class="text-sm font-medium text-white">Hoang</div>
-                          <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                          <div id="logout" class="text-sm font-medium text-white">Logout</div>
-                      </div>`
-    : `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                        <a href="/signin" class="text-sm font-medium text-white">Sign in</a>
-                        <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                        <a href="/signup" class="text-sm font-medium text-white">Create account</a>
-                      </div>`
-}
-
+                ${localStorage.getItem("user") ? `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <div id="account-email" class="text-sm font-medium text-white">Hoang</div>
+                  <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                  <div id="logout" class="text-sm font-medium text-white">Logout</div>
+                </div>` : `<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <a href="#/signin" class="text-sm font-medium text-white">Sign in</a>
+                  <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                  <a href="#/signup" class="text-sm font-medium text-white">Create account</a>
+                </div>`}
                 <!-- Cart -->
                 <div class="ml-4 flow-root lg:ml-6">
                   <a href="#/cart" class="group -m-2 p-2 flex items-center">
@@ -87,7 +81,6 @@ const Header = {
 
     const user = JSON.parse(localStorage.getItem("user"));
     const logout = document.querySelector("#logout");
-    console.log(user);
 
     if (user) {
       document.querySelector("#account-email").innerHTML = user.email;
