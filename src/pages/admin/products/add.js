@@ -1,6 +1,7 @@
 import toastr from "toastr";
 import axios from "axios";
 import $ from "jquery";
+// eslint-disable-next-line no-unused-vars
 import validate from "jquery-validation";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
